@@ -1,0 +1,74 @@
+By OnlineInterviewQuestions.com 
+NoSQL interview questions 
+NOSQL is an alternative to the traditional Relational Database Management system. It is designed to work with  large sets of distributed data. NoSQL databases stores data in the key-value form. Here is the list of Best  NoSQL interview Questions and answers 
+
+Q1. What is NoSQL? 
+NoSQL is a concept when the data is not connected with the relational database. It is an advanced method of  database where there are no tables used to manipulate data. NoSQL is designed to support high performance,  big table and graph databases. 
+
+Q2. What do you understand by NoSQL in databases? 
+The database management systems which are highly scalable and flexible are known as NoSQL databases.  These databases allow us to store and process unstructured and semi-structured data which is not possible when  we make use of Relational database management system. NoSQL can be termed as a solution to all the  conventional databases which were not able to handle the data seamlessly. It also gives an opportunity to the  companies to store massive amount of structured and unstructured data in real time. In today’s time, big firms  such as- Google, Facebook, Amazon, etc. use NoSQL for providing cloud-based services for storing data in real  time. 
+
+Q3. List some of the features of NoSQL? 
+Some of the features of NoSQL are listed below: – 
+Using NoSQL, we can store the large amount of structured, semi-structured, and unstructured data. It supports agile sprint, quick iteration, and frequent code pushes. 
+It uses object-oriented programming which is frequent and is also easy to use. 
+It is more efficient. It has a scale-out architecture. It is cheap instead of being expensive. It has a  monolithic architecture. It can be easily accessed. 
+
+Q4. What are advantages and disadvantages of NoSQL? 
+Advantages of NoSQL 
+Using the new node concepts, the database of NoSQL can be expanded to the set limit. Low commodity 
+hardware takes this point as an added advantage. 
+NoSQL databases are used to store a massive volume of information. Big data and recently posted user  reviews utilize the concept of NoSQL. 
+There is no expensive administration required to monitor the database of NoSQL. 
+NoSQL can be installed with cheap economy instead of spending money on complicated systems. Disadvantages of NoSQL 
+Since NoSQL is a new technology of database storage, there are many other systems in the market which  are already leading in the market. 
+The previously built systems have the support available round the clock, but the NoSQL support system is  less comparatively. 
+Since NoSQL is a new technology, it is not supporting the old commands that are used in the system. 
+
+Q5. How does NoSQL database management system budget memory? 
+The node which manages the data in the NoSQL database store is the replication node. It is also the main  consumer of the memory. The java heap and the cache size which are used by the replication node are the  important factors in terms of performance. By default, these two things are calculated by NoSQL in terms of the  amount of memory available to the storage node. Specification of the available memory for a storage node is  recommended. The memory will be evenly divided between all the RN’s if the storage node hosts more than one  replication node. 
+
+Q6. Explain Oracle NoSQL database management system? 
+The NoSQL database management system is a distributed key-value database. It is designed so that it can  provide highly reliable and scalable data. It can make the data storage available across all the configurable set of  systems which functions as storage nodes. In this database system, data is stored as key-value pairs. This data is  written to a particular storage node. These databases provide a mechanism for the storage and retrieval of data  which is composed in a way other than the tabular method which was used in the relational databases. 
+
+Q7. What are the pros and cons of a graph database under NoSQL databases?
+Following are the pros and cons of a graph database which is a type of NoSQL databases: – Pros of using graph database: 
+These are tailor-made for the networking applications. A social network is a good example of this. They can also be perfect for an object-oriented programming system. 
+Cons of using graph database: 
+Since the degree of interconnection between nodes is high in graph database, so it is not suitable for  network partitioning. 
+Also, graph databases don’t scale out well in NoSQL databases. 
+
+Q8. List the different kinds of NoSQL data stores? 
+The variety of NoSQL data stores available which are widely distributed are categorized into four categories.  They are: – 
+1. Key value store- it is a simple data storage key system which uses keys to access different values. 2. Column family store- it is a sparse matrix system. It uses columns and rows as keys. 3. Graph store- it is used in case of relationships-intensive problems. 
+4. Document stores- it is used for storing hierarchical data structures directly in the database.
+
+Q9. What is CAP theorem? How is it applicable to NoSQL systems? 
+The CAP theorem was proposed by Eric Brewer in early 2000. In this, three system attributes have been  discussed within the distributed databases. That is 
+Consistency- in this, all the nodes see the same data at the same time. 
+Availability- it gives us a guarantee that there will be a response for every request made to the system  about whether it was successful or not. 
+Partition tolerance- it is the quality of NoSQL database management system which states that the system  will work even if a part of the system has failed or is not working. 
+A distributed database system might provide only 2 of the 3 above qualities. 
+
+Q10. What do you mean by eventual consistency in NoSQL stores? 
+Eventual consistency in NoSQL means that when all the service logics have been executed, the system is left in  a consistent state. For achieving high availability, this concept is used in the distributed systems. It gives a  guarantee that, if new updates are not made to a given data item, then eventually all accesses to that item will  return the last updated value. In NoSQL, it is provided in terms of BASE and RDMS also known as ACID  properties. Present NoSQL databases provide client applications with guarantee of eventual consistency. Some  NoSQL databases like- MongoDB and Cassandra are eventually consistent in some of the configurations.
+
+Q11. What do you understand by Polyglot Persistence in NoSQL? 
+While storing data, it is advisable to choose multiple data storage systems so that the system allows us to store  various data in our future. This is a safer type of data storage system because we do not want to risk on single  data storage system. This type of storage is called as polyglot persistence in NoSQL. 
+
+Q12. What do you understand by " Polyglot Persistence " in NoSQL? 
+The term Polyglot Persistence was coined by Neal Ford in 2006 to express the idea that applications should be  written in mixed languages. As we all know that different problems arise in all the applications. So, when an  application is written using different languages, then those languages can be used to solve or tackle with  different kind of problems. This is known as polyglot persistence. Picking the right language for a particular  problem can be more productive rather than trying to fit all the aspects of that problem into a single language.  Hence, polyglot persistence is the term which is used to define this hybrid approach to persistence. 
+
+Q13. Write down the differences between NoSQL and RDBMS? 
+Following is a list of the differences between NoSQL and RDBMS: – 
+In terms of data format, NoSQL does not follow any order for its data format. Whereas, RDBMS is more  organized and structured when it comes to the format of its data. 
+When it comes to scalability, NoSQL is more very good and more scalable. Whereas, RDBMS is average  and less scalable than NoSQL. 
+For querying of data, NoSQL is limited in terms of querying because there is no join clause present in  NoSQL. Whereas, querying can be used in RDBMS as it uses the structured query language. The difference in the storage mechanism of NoSQL and RDBMS is that, NoSQL uses key value pair,  documents, column storage, etc. for storage. Whereas, RDBMS uses various tables for storing data and  relationships. 
+
+Q14. Enlist differences between SQL and NoSQL databases? 
+Differences between SQL and NoSQL databases 
+SQL NoSQL 
+Works with the relational database system Works with the distributed database system Vertically scalable Horizontally scalable 
+Systems are fixed and not flexible Systems are dynamic and flexible 
+Failure in hierarchical data storage Perfect for hierarchical data storage 
+Any complex queries can be used Not suitable for complex queries 
