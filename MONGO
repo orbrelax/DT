@@ -1,0 +1,2872 @@
+slip 10
+> use product
+switched to db product
+> db.product.insert({pid:1,pname:laptop,brandname:brandA,wperiod:1,rating:4.5})
+uncaught exception: ReferenceError: laptop is not defined :
+@(shell):1:26
+> use customerloan
+switched to db customerloan
+> db.customer.insert({cid:1,cname:"Mr.patil",address:"123Main st",city:"pimpri"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:2,cname:"Mrs.Deshmuk",address:"456Main st",city:"mumbai"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:3,cname:"Mrs.sharma",address:"786Maple st",city:"pimpri"})
+WriteResult({ "nInserted" : 1 })
+> use product
+switched to db product
+> db.product.insert({pid:1,pname:"laptop",brandname:"brandA",wperiod:1,rating:4.5})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:2,pname:"smartphone",brandname:"brandB",wperiod:2,rating:3.8})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:3,pname:"headphone",brandname:"brandC",wperiod:1,rating:4.0})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:4,pname:"Tv",brandname:"brandA",wperiod:2,rating:5})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:5,pname:"refrigeretor",brandname:"brandB",wperiod:1,rating:6})
+WriteResult({ "nInserted" : 1 })
+> db.product.find({}).pretty()
+{
+	"_id" : ObjectId("65775b677795f9eda9feb80e"),
+	"pid" : 1,
+	"pname" : "laptop",
+	"brandname" : "brandA",
+	"wperiod" : 1,
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("65775ba37795f9eda9feb80f"),
+	"pid" : 2,
+	"pname" : "smartphone",
+	"brandname" : "brandB",
+	"wperiod" : 2,
+	"rating" : 3.8
+}
+{
+	"_id" : ObjectId("65775bd87795f9eda9feb810"),
+	"pid" : 3,
+	"pname" : "headphone",
+	"brandname" : "brandC",
+	"wperiod" : 1,
+	"rating" : 4
+}
+{
+	"_id" : ObjectId("65775c237795f9eda9feb811"),
+	"pid" : 4,
+	"pname" : "Tv",
+	"brandname" : "brandA",
+	"wperiod" : 2,
+	"rating" : 5
+}
+{
+	"_id" : ObjectId("65775c517795f9eda9feb812"),
+	"pid" : 5,
+	"pname" : "refrigeretor",
+	"brandname" : "brandB",
+	"wperiod" : 1,
+	"rating" : 6
+}
+> db.customer.insert({cid:101,cname:"abc",city:"new york"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:102,cname:"xyz",city:"los angeles"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:103,cname:"poq",city:"chicago"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:104,cname:"kji",city:"houston"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:105,cname:"uvw",city:"miami"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.find({}).pretty()
+{
+	"_id" : ObjectId("65775cdc7795f9eda9feb813"),
+	"cid" : 101,
+	"cname" : "abc",
+	"city" : "new york"
+}
+{
+	"_id" : ObjectId("65775cfa7795f9eda9feb814"),
+	"cid" : 102,
+	"cname" : "xyz",
+	"city" : "los angeles"
+}
+{
+	"_id" : ObjectId("65775d117795f9eda9feb815"),
+	"cid" : 103,
+	"cname" : "poq",
+	"city" : "chicago"
+}
+{
+	"_id" : ObjectId("65775d287795f9eda9feb816"),
+	"cid" : 104,
+	"cname" : "kji",
+	"city" : "houston"
+}
+{
+	"_id" : ObjectId("65775d437795f9eda9feb817"),
+	"cid" : 105,
+	"cname" : "uvw",
+	"city" : "miami"
+}
+> db.purchase.insert({pid:1001,cid:101,pid:1,purchasedate:"2023-08-15,billamt:1200)}
+uncaught exception: SyntaxError: "" literal not terminated before end of script :
+@(shell):1:82
+> db.purchase.insert({pid:1001,cid:101,pid:1,purchasedate:2023-08-15,billamt:1200)}
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:79
+> db.purchase.insert({pid:1001,cid:101,pid:1,purchasedate:2023-08-15,billamt:1200})
+WriteResult({ "nInserted" : 1 })
+> db.purchase.insert({pid:1002,cid:102,pid:3,purchasedate:2023-08-15,billamt:80})
+WriteResult({ "nInserted" : 1 })
+> db.purchase.insert({pid:1003,cid:103,pid:2,purchasedate:2023-08-15,billamt:500})
+WriteResult({ "nInserted" : 1 })
+> db.purchase.insert({pid:1004,cid:104,pid:5,purchasedate:2023-08-15,billamt:1000})
+WriteResult({ "nInserted" : 1 })
+> db.purchase.insert({pid:1005,cid:105,pid:4,purchasedate:2023-08-15,billamt:800})
+WriteResult({ "nInserted" : 1 })
+> db.purchase.find({}).pretty()
+{
+	"_id" : ObjectId("65775e2f7795f9eda9feb818"),
+	"pid" : 1,
+	"cid" : 101,
+	"purchasedate" : 2000,
+	"billamt" : 1200
+}
+{
+	"_id" : ObjectId("65775e557795f9eda9feb819"),
+	"pid" : 3,
+	"cid" : 102,
+	"purchasedate" : 2000,
+	"billamt" : 80
+}
+{
+	"_id" : ObjectId("65775e717795f9eda9feb81a"),
+	"pid" : 2,
+	"cid" : 103,
+	"purchasedate" : 2000,
+	"billamt" : 500
+}
+{
+	"_id" : ObjectId("65775e947795f9eda9feb81b"),
+	"pid" : 5,
+	"cid" : 104,
+	"purchasedate" : 2000,
+	"billamt" : 1000
+}
+{
+	"_id" : ObjectId("65775ecf7795f9eda9feb81c"),
+	"pid" : 4,
+	"cid" : 105,
+	"purchasedate" : 2000,
+	"billamt" : 800
+}
+> db.product.find({wperiod:1})
+{ "_id" : ObjectId("65775b677795f9eda9feb80e"), "pid" : 1, "pname" : "laptop", "brandname" : "brandA", "wperiod" : 1, "rating" : 4.5 }
+{ "_id" : ObjectId("65775bd87795f9eda9feb810"), "pid" : 3, "pname" : "headphone", "brandname" : "brandC", "wperiod" : 1, "rating" : 4 }
+{ "_id" : ObjectId("65775c517795f9eda9feb812"), "pid" : 5, "pname" : "refrigeretor", "brandname" : "brandB", "wperiod" : 1, "rating" : 6 }
+> db.product.find({wperiod:1}).pretty()
+{
+	"_id" : ObjectId("65775b677795f9eda9feb80e"),
+	"pid" : 1,
+	"pname" : "laptop",
+	"brandname" : "brandA",
+	"wperiod" : 1,
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("65775bd87795f9eda9feb810"),
+	"pid" : 3,
+	"pname" : "headphone",
+	"brandname" : "brandC",
+	"wperiod" : 1,
+	"rating" : 4
+}
+{
+	"_id" : ObjectId("65775c517795f9eda9feb812"),
+	"pid" : 5,
+	"pname" : "refrigeretor",
+	"brandname" : "brandB",
+	"wperiod" : 1,
+	"rating" : 6
+}
+> db.customer.find({purchasedate:23-08-15}).pretty()
+> db.customer.find({purchasedate:23-08-15}).pretty()
+> db.customer.find({purchasedate:2023-08-15}).pretty()
+> db.purchase.insert({pid:1001,cid:101,pid:1,purchasedate:"2023-08-15",billamt:1200})
+WriteResult({ "nInserted" : 1 })
+> db.purchase.insert({pid:1002,cid:102,pid:3,purchasedate:"2023-08-15",billamt:80})
+WriteResult({ "nInserted" : 1 })
+> db.purchase.insert({pid:1003,cid:103,pid:2,purchasedate:"2023-08-15",billamt:500})
+WriteResult({ "nInserted" : 1 })
+> db.purchase.insert({pid:1004,cid:104,pid:5,purchasedate:"2023-08-15",billamt:1000})
+WriteResult({ "nInserted" : 1 })
+> db.purchase.insert({pid:1005,cid:105,pid:4,purchasedate:"2023-08-15",billamt:800})
+WriteResult({ "nInserted" : 1 })
+> db.purchase.find({}).pretty()
+{
+	"_id" : ObjectId("65775e2f7795f9eda9feb818"),
+	"pid" : 1,
+	"cid" : 101,
+	"purchasedate" : 2000,
+	"billamt" : 1200
+}
+{
+	"_id" : ObjectId("65775e557795f9eda9feb819"),
+	"pid" : 3,
+	"cid" : 102,
+	"purchasedate" : 2000,
+	"billamt" : 80
+}
+{
+	"_id" : ObjectId("65775e717795f9eda9feb81a"),
+	"pid" : 2,
+	"cid" : 103,
+	"purchasedate" : 2000,
+	"billamt" : 500
+}
+{
+	"_id" : ObjectId("65775e947795f9eda9feb81b"),
+	"pid" : 5,
+	"cid" : 104,
+	"purchasedate" : 2000,
+	"billamt" : 1000
+}
+{
+	"_id" : ObjectId("65775ecf7795f9eda9feb81c"),
+	"pid" : 4,
+	"cid" : 105,
+	"purchasedate" : 2000,
+	"billamt" : 800
+}
+{
+	"_id" : ObjectId("657760fe7795f9eda9feb81d"),
+	"pid" : 1,
+	"cid" : 101,
+	"purchasedate" : "2023-08-15",
+	"billamt" : 1200
+}
+{
+	"_id" : ObjectId("6577610e7795f9eda9feb81e"),
+	"pid" : 3,
+	"cid" : 102,
+	"purchasedate" : "2023-08-15",
+	"billamt" : 80
+}
+{
+	"_id" : ObjectId("657761267795f9eda9feb81f"),
+	"pid" : 2,
+	"cid" : 103,
+	"purchasedate" : "2023-08-15",
+	"billamt" : 500
+}
+{
+	"_id" : ObjectId("6577613c7795f9eda9feb820"),
+	"pid" : 5,
+	"cid" : 104,
+	"purchasedate" : "2023-08-15",
+	"billamt" : 1000
+}
+{
+	"_id" : ObjectId("6577614f7795f9eda9feb821"),
+	"pid" : 4,
+	"cid" : 105,
+	"purchasedate" : "2023-08-15",
+	"billamt" : 800
+}
+> db.customer.find({purchasedate:2023-08-15}).pretty()
+> db.customer.find({purchasedate:"2023-08-15"}).pretty()
+> db.customer.find({purchasedate:"2023-08-15"})
+> db.purchase.find({purchasedate:"2023-08-15"})
+{ "_id" : ObjectId("657760fe7795f9eda9feb81d"), "pid" : 1, "cid" : 101, "purchasedate" : "2023-08-15", "billamt" : 1200 }
+{ "_id" : ObjectId("6577610e7795f9eda9feb81e"), "pid" : 3, "cid" : 102, "purchasedate" : "2023-08-15", "billamt" : 80 }
+{ "_id" : ObjectId("657761267795f9eda9feb81f"), "pid" : 2, "cid" : 103, "purchasedate" : "2023-08-15", "billamt" : 500 }
+{ "_id" : ObjectId("6577613c7795f9eda9feb820"), "pid" : 5, "cid" : 104, "purchasedate" : "2023-08-15", "billamt" : 1000 }
+{ "_id" : ObjectId("6577614f7795f9eda9feb821"), "pid" : 4, "cid" : 105, "purchasedate" : "2023-08-15", "billamt" : 800 }
+> db.purchase.find({purchasedate:"2023-08-15"}).pretty()
+{
+	"_id" : ObjectId("657760fe7795f9eda9feb81d"),
+	"pid" : 1,
+	"cid" : 101,
+	"purchasedate" : "2023-08-15",
+	"billamt" : 1200
+}
+{
+	"_id" : ObjectId("6577610e7795f9eda9feb81e"),
+	"pid" : 3,
+	"cid" : 102,
+	"purchasedate" : "2023-08-15",
+	"billamt" : 80
+}
+{
+	"_id" : ObjectId("657761267795f9eda9feb81f"),
+	"pid" : 2,
+	"cid" : 103,
+	"purchasedate" : "2023-08-15",
+	"billamt" : 500
+}
+{
+	"_id" : ObjectId("6577613c7795f9eda9feb820"),
+	"pid" : 5,
+	"cid" : 104,
+	"purchasedate" : "2023-08-15",
+	"billamt" : 1000
+}
+{
+	"_id" : ObjectId("6577614f7795f9eda9feb821"),
+	"pid" : 4,
+	"cid" : 105,
+	"purchasedate" : "2023-08-15",
+	"billamt" : 800
+}
+
+
+slip1
+db.owner.insert({ono:1,oname:"Mr.Patil",address:"Mumbai"})
+WriteResult({ "nInserted" : 1 })
+> db.owner.insert({ono:2,oname:"Mrs.Sharma",address:"Pune"})
+WriteResult({ "nInserted" : 1 })
+> 
+> db.owner.insert({ono:3,oname:"Mr.Singh",address:"Nashik"});
+WriteResult({ "nInserted" : 1 })
+> db.owner.insert({ono:4,oname:"Ms.Gupta",address:"Nashik"});
+WriteResult({ "nInserted" : 1 })
+> db.owner.insert({ono:5,oname:"Mr.Kumar",address:"Pune"});
+WriteResult({ "nInserted" : 1 })
+> db.owner.find({}).pretty()
+{
+	"_id" : ObjectId("6576c039bd7e4d8e477fc3b7"),
+	"ono" : 1,
+	"oname" : "Mr.Patil",
+	"address" : "Mumbai"
+}
+{
+	"_id" : ObjectId("6576c077bd7e4d8e477fc3b8"),
+	"ono" : 2,
+	"oname" : "Mrs.Sharma",
+	"address" : "Pune"
+}
+{
+	"_id" : ObjectId("6576c127bd7e4d8e477fc3b9"),
+	"ono" : 3,
+	"oname" : "Mr.Singh",
+	"address" : "Nashik"
+}
+{
+	"_id" : ObjectId("6576c1c5bd7e4d8e477fc3ba"),
+	"ono" : 4,
+	"oname" : "Ms.Gupta",
+	"address" : "Nashik"
+}
+{
+	"_id" : ObjectId("6576c1f0bd7e4d8e477fc3bb"),
+	"ono" : 5,
+	"oname" : "Mr.Kumar",
+	"address" : "Pune"
+}
+> db.property.insert({propno:1,propname:"1BHK",address:"Pune",rate:420000,oname:"Mr.Patil"})
+WriteResult({ "nInserted" : 1 })
+> db.property.insert({propno:1,propname:"3BHK",address:"Mumbai",rate:300000,oname:"Mr.Patil"})
+WriteResult({ "nInserted" : 1 })
+> db.property.insert({propno:2,propname:"2BHK",address:"Nashik",rate:140000,oname:"Mr.Kumar"})
+WriteResult({ "nInserted" : 1 })
+> db.property.insert({propno:3,propname:"1BHK",address:"Nashik",rate:280000,oname:"Ms.Gupta"})
+WriteResult({ "nInserted" : 1 })
+> db.property.insert({propno:4,propname:"4BHK",address:"Mumbai",rate:450000,oname:"Mrs.Sharma"})
+WriteResult({ "nInserted" : 1 })
+> db.preperty.find({}).pretty();
+> db.preperty.find({}).pretty()
+> db.property.find({}).pretty()
+{
+	"_id" : ObjectId("6576c316bd7e4d8e477fc3bc"),
+	"propno" : 1,
+	"propname" : "1BHK",
+	"address" : "Pune",
+	"rate" : 420000,
+	"oname" : "Mr.Patil"
+}
+{
+	"_id" : ObjectId("6576c343bd7e4d8e477fc3bd"),
+	"propno" : 1,
+	"propname" : "3BHK",
+	"address" : "Mumbai",
+	"rate" : 300000,
+	"oname" : "Mr.Patil"
+}
+{
+	"_id" : ObjectId("6576c37dbd7e4d8e477fc3be"),
+	"propno" : 2,
+	"propname" : "2BHK",
+	"address" : "Nashik",
+	"rate" : 140000,
+	"oname" : "Mr.Kumar"
+}
+{
+	"_id" : ObjectId("6576c3afbd7e4d8e477fc3bf"),
+	"propno" : 3,
+	"propname" : "1BHK",
+	"address" : "Nashik",
+	"rate" : 280000,
+	"oname" : "Ms.Gupta"
+}
+{
+	"_id" : ObjectId("6576c3f8bd7e4d8e477fc3c0"),
+	"propno" : 4,
+	"propname" : "4BHK",
+	"address" : "Mumbai",
+	"rate" : 450000,
+	"oname" : "Mrs.Sharma"
+}
+
+> db.property.find({},{address:1,propname:1,rate:1,oname:1}).pretty()
+{
+	"_id" : ObjectId("6576c316bd7e4d8e477fc3bc"),
+	"propname" : "1BHK",
+	"address" : "Pune",
+	"rate" : 420000,
+	"oname" : "Mr.Patil"
+}
+{
+	"_id" : ObjectId("6576c343bd7e4d8e477fc3bd"),
+	"propname" : "3BHK",
+	"address" : "Mumbai",
+	"rate" : 300000,
+	"oname" : "Mr.Patil"
+}
+{
+	"_id" : ObjectId("6576c37dbd7e4d8e477fc3be"),
+	"propname" : "2BHK",
+	"address" : "Nashik",
+	"rate" : 140000,
+	"oname" : "Mr.Kumar"
+}
+{
+	"_id" : ObjectId("6576c3afbd7e4d8e477fc3bf"),
+	"propname" : "1BHK",
+	"address" : "Nashik",
+	"rate" : 280000,
+	"oname" : "Ms.Gupta"
+}
+{
+	"_id" : ObjectId("6576c3f8bd7e4d8e477fc3c0"),
+	"propname" : "4BHK",
+	"address" : "Mumbai",
+	"rate" : 450000,
+	"oname" : "Mrs.Sharma"
+}
+
+> db.property.find({oname:"Mr.Patil"}).sort({rate:-1}).limit(1)
+{ "_id" : ObjectId("6576c316bd7e4d8e477fc3bc"), "propno" : 1, "propname" : "1BHK", "address" : "Pune", "rate" : 420000, "oname" : "Mr.Patil" }
+> db.property.find({address:"Nashik"})
+{ "_id" : ObjectId("6576c37dbd7e4d8e477fc3be"), "propno" : 2, "propname" : "2BHK", "address" : "Nashik", "rate" : 140000, "oname" : "Mr.Kumar" }
+{ "_id" : ObjectId("6576c3afbd7e4d8e477fc3bf"), "propno" : 3, "propname" : "1BHK", "address" : "Nashik", "rate" : 280000, "oname" : "Ms.Gupta" }
+> db.property.find({address:"Nashik"}).pretty()
+{
+	"_id" : ObjectId("6576c37dbd7e4d8e477fc3be"),
+	"propno" : 2,
+	"propname" : "2BHK",
+	"address" : "Nashik",
+	"rate" : 140000,
+	"oname" : "Mr.Kumar"
+}
+{
+	"_id" : ObjectId("6576c3afbd7e4d8e477fc3bf"),
+	"propno" : 3,
+	"propname" : "1BHK",
+	"address" : "Nashik",
+	"rate" : 280000,
+	"oname" : "Ms.Gupta"
+}
+
+
+
+> db.property.find({rate:{$lt:200000}}).pretty()
+{
+	"_id" : ObjectId("6576c37dbd7e4d8e477fc3be"),
+	"propno" : 2,
+	"propname" : "2BHK",
+	"address" : "Nashik",
+	"rate" : 140000,
+	"oname" : "Mr.Kumar"
+
+
+
+
+
+
+slip2
+use newspaper
+switched to db newspaper
+> db.publisher.insert({pno:1,pname:"ABC",state:"Gujrat",city:"Surat"})
+WriteResult({ "nInserted" : 1 })
+> db.publisher.insert({pno:2,pname:"Nirali",state:"Maharastra",city:"Nashik"})
+WriteResult({ "nInserted" : 1 })
+> db.publisher.insert({pno:3,pname:"Vision",state:"Maharastra",city:"Pune"})
+WriteResult({ "nInserted" : 1 })
+> db.publisher.insert({pno:4,pname:"Balbharti",state:"Maharastra",city:"Mumbai"})
+WriteResult({ "nInserted" : 1 })
+> db.publisher.insert({pno:5,pname:"XYZ",state:"Gujrat",city:"Ahmedabad"})
+WriteResult({ "nInserted" : 1 })
+> db.publisher.find({}).pretty()
+{
+	"_id" : ObjectId("6576cac9ec36bf34e86dd9b2"),
+	"pno" : 1,
+	"pname" : "ABC",
+	"state" : "Gujrat",
+	"city" : "Surat"
+}
+{
+	"_id" : ObjectId("6576caf6ec36bf34e86dd9b3"),
+	"pno" : 2,
+	"pname" : "Nirali",
+	"state" : "Maharastra",
+	"city" : "Nashik"
+}
+{
+	"_id" : ObjectId("6576cb0fec36bf34e86dd9b4"),
+	"pno" : 3,
+	"pname" : "Vision",
+	"state" : "Maharastra",
+	"city" : "Pune"
+}
+{
+	"_id" : ObjectId("6576cb2dec36bf34e86dd9b5"),
+	"pno" : 4,
+	"pname" : "Balbharti",
+	"state" : "Maharastra",
+	"city" : "Mumbai"
+}
+{
+	"_id" : ObjectId("6576cb6aec36bf34e86dd9b6"),
+	"pno" : 5,
+	"pname" : "XYZ",
+	"state" : "Gujrat",
+	"city" : "Ahmedabad"
+}
+> db.newspaper.insert({nid:1,nname:"Marathitimes",lang:"Marathi",sale:50000})
+WriteResult({ "nInserted" : 1 })
+> db.newspaper.insert({nid:1,nname:"GujaratNews",lang:"Gujrati",sale:45000})
+WriteResult({ "nInserted" : 1 })
+> db.newspaper.insert({nid:1,nname:"Mumbaiherald",lang:"Marathi",sale:10000})
+WriteResult({ "nInserted" : 1 })
+> db.newspaper.insert({nid:2,nname:"Puneexpress",lang:"Marathi",sale:60000})
+WriteResult({ "nInserted" : 1 })
+> db.newspaper.insert({nid:2,nname:"Surattribune",lang:"English",sale:48000})
+WriteResult({ "nInserted" : 1 })
+> db.newspaper.find({}).pretty()
+{
+	"_id" : ObjectId("6576cd1dec36bf34e86dd9b7"),
+	"nid" : 1,
+	"nname" : "Marathitimes",
+	"lang" : "Marathi",
+	"sale" : 50000
+}
+{
+	"_id" : ObjectId("6576cddbec36bf34e86dd9b8"),
+	"nid" : 1,
+	"nname" : "GujaratNews",
+	"lang" : "Gujrati",
+	"sale" : 45000
+}
+{
+	"_id" : ObjectId("6576d2d0ec36bf34e86dd9b9"),
+	"nid" : 1,
+	"nname" : "Mumbaiherald",
+	"lang" : "Marathi",
+	"sale" : 10000
+}
+{
+	"_id" : ObjectId("6576d2ffec36bf34e86dd9ba"),
+	"nid" : 2,
+	"nname" : "Puneexpress",
+	"lang" : "Marathi",
+	"sale" : 60000
+}
+{
+	"_id" : ObjectId("6576d338ec36bf34e86dd9bb"),
+	"nid" : 2,
+	"nname" : "Surattribune",
+	"lang" : "English",
+	"sale" : 48000
+}
+> db.newspaper.find({city:"Nashik"}).pretty()
+> db.publisher.find({city:"Nashik"}).pretty()
+{
+	"_id" : ObjectId("6576caf6ec36bf34e86dd9b3"),
+	"pno" : 2,
+	"pname" : "Nirali",
+	"state" : "Maharastra",
+	"city" : "Nashik"
+}
+> db.newspaper.find({lang:"Marathi"}).pretty()
+{
+	"_id" : ObjectId("6576cd1dec36bf34e86dd9b7"),
+	"nid" : 1,
+	"nname" : "Marathitimes",
+	"lang" : "Marathi",
+	"sale" : 50000
+}
+{
+	"_id" : ObjectId("6576d2d0ec36bf34e86dd9b9"),
+	"nid" : 1,
+	"nname" : "Mumbaiherald",
+	"lang" : "Marathi",
+	"sale" : 10000
+}
+{
+	"_id" : ObjectId("6576d2ffec36bf34e86dd9ba"),
+	"nid" : 2,
+	"nname" : "Puneexpress",
+	"lang" : "Marathi",
+	"sale" : 60000
+}
+
+> db.publisher.find({state:"Gujrat"}).pretty()
+{
+	"_id" : ObjectId("6576cac9ec36bf34e86dd9b2"),
+	"pno" : 1,
+	"pname" : "ABC",
+	"state" : "Gujrat",
+	"city" : "Surat"
+}
+{
+	"_id" : ObjectId("6576cb6aec36bf34e86dd9b6"),
+	"pno" : 5,
+	"pname" : "XYZ",
+	"state" : "Gujrat",
+	"city" : "Ahmedabad"
+}
+
+
+
+slip3
+use department
+switched to db department
+> db.department.insert({deptid:1,deptname:"Sales"})
+WriteResult({ "nInserted" : 1 })
+> db.department.insert({deptid:2,deptname:"Hr"})
+WriteResult({ "nInserted" : 1 })
+> db.department.insert({deptid:3,deptname:"IT"})
+WriteResult({ "nInserted" : 1 })
+
+> db.department.find({}).pretty()
+{
+	"_id" : ObjectId("6576d6dbae5a4febbd618e11"),
+	"deptid" : 1,
+	"deptname" : "Sales"
+}
+{
+	"_id" : ObjectId("6576d6e0ae5a4febbd618e12"),
+	"deptid" : 2,
+	"deptname" : "Hr"
+}
+{
+	"_id" : ObjectId("6576d6e4ae5a4febbd618e13"),
+	"deptid" : 3,
+	"deptname" : "IT"
+}
+> db.employee.insert({eid:1,ename:"ABC",salary:60000,depatname:"Sales"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({eid:1,ename:"XYZ",salary:70000,depatname:"Hr"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({eid:2,ename:"PQR",salary:75000,depatname:"IT"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({eid:3,ename:"NPR",salary:50000,depatname:"IT"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({eid:4,ename:"GHI",salary:65000,depatname:"Sales"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.find({}).pretty()
+{
+	"_id" : ObjectId("6576d7c5ae5a4febbd618e14"),
+	"eid" : 1,
+	"ename" : "ABC",
+	"salary" : 60000,
+	"depatname" : "Sales"
+}
+{
+	"_id" : ObjectId("6576d7e2ae5a4febbd618e15"),
+	"eid" : 1,
+	"ename" : "XYZ",
+	"salary" : 70000,
+	"depatname" : "Hr"
+}
+{
+	"_id" : ObjectId("6576d802ae5a4febbd618e16"),
+	"eid" : 2,
+	"ename" : "PQR",
+	"salary" : 75000,
+	"depatname" : "IT"
+}
+{
+	"_id" : ObjectId("6576d81fae5a4febbd618e17"),
+	"eid" : 3,
+	"ename" : "NPR",
+	"salary" : 50000,
+	"depatname" : "IT"
+}
+{
+	"_id" : ObjectId("6576d845ae5a4febbd618e18"),
+	"eid" : 4,
+	"ename" : "GHI",
+	"salary" : 65000,
+	"depatname" : "Sales"
+}
+> db.employee.find({}).sort({"salary":-1}).limit(1).pretty()
+{
+	"_id" : ObjectId("6576d802ae5a4febbd618e16"),
+	"eid" : 2,
+	"ename" : "PQR",
+	"salary" : 75000,
+	"depatname" : "IT"
+}
+
+
+slip9
+use customerloan
+switched to db customerloan
+> db.customer.insert({cid:1,cname:"Dipali",address:"Pune"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:2,cname:"Mr.Patil",address:"Pimpri"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:3,cname:"Mr.Sharma",address:"Pune"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.find({}).pretty()
+{
+	"_id" : ObjectId("6576e2caae5a4febbd618e19"),
+	"cid" : 1,
+	"cname" : "Dipali",
+	"address" : "Pune"
+}
+{
+	"_id" : ObjectId("6576e2e5ae5a4febbd618e1a"),
+	"cid" : 2,
+	"cname" : "Mr.Patil",
+	"address" : "Pimpri"
+}
+{
+	"_id" : ObjectId("6576e314ae5a4febbd618e1b"),
+	"cid" : 3,
+	"cname" : "Mr.Sharma",
+	"address" : "Pune"
+}
+> db.loan.insert({lid:101,cname:"Dipali",ltype:"HomeLoan",lamount:150000,lcity:"Pimpri"})
+WriteResult({ "nInserted" : 1 })
+> db.loan.insert({lid:102,cname:"Mr.Patil",ltype:"Carloan",lamount:180000,lcity:"Pune"})
+WriteResult({ "nInserted" : 1 })
+> db.loan.insert({lid:103,cname:"Mr.Sharma",ltype:"educationloan",lamount:190000,lcity:"Mumbai"})
+WriteResult({ "nInserted" : 1 })
+> db.loan.find({}).pretty()
+{
+	"_id" : ObjectId("6576e4f5ae5a4febbd618e1c"),
+	"lid" : 101,
+	"cname" : "Dipali",
+	"ltype" : "HomeLoan",
+	"lamount" : 150000,
+	"lcity" : "Pimpri"
+}
+{
+	"_id" : ObjectId("6576e53eae5a4febbd618e1d"),
+	"lid" : 102,
+	"cname" : "Mr.Patil",
+	"ltype" : "Carloan",
+	"lamount" : 180000,
+	"lcity" : "Pune"
+}
+{
+	"_id" : ObjectId("6576e57bae5a4febbd618e1e"),
+	"lid" : 103,
+	"cname" : "Mr.Sharma",
+	"ltype" : "educationloan",
+	"lamount" : 190000,
+	"lcity" : "Mumbai"
+}
+> db.customer.find({cname:{$regex:"D"}}).pretty()
+{
+	"_id" : ObjectId("6576e2caae5a4febbd618e19"),
+	"cid" : 1,
+	"cname" : "Dipali",
+	"address" : "Pune"
+}
+> db.customer.find({cname:{$regex:"Mr.P"}}).pretty()
+{
+	"_id" : ObjectId("6576e2e5ae5a4febbd618e1a"),
+	"cid" : 2,
+	"cname" : "Mr.Patil",
+	"address" : "Pimpri"
+}
+> db.loan.insert({lid:104,cname:"Mr.Patel",ltype:"educationloan",lamount:120000,lcity:"Pimpri"})
+WriteResult({ "nInserted" : 1 })
+> db.loan.find({}).pretty()
+{
+	"_id" : ObjectId("6576e4f5ae5a4febbd618e1c"),
+	"lid" : 101,
+	"cname" : "Dipali",
+	"ltype" : "HomeLoan",
+	"lamount" : 150000,
+	"lcity" : "Pimpri"
+}
+{
+	"_id" : ObjectId("6576e53eae5a4febbd618e1d"),
+	"lid" : 102,
+	"cname" : "Mr.Patil",
+	"ltype" : "Carloan",
+	"lamount" : 180000,
+	"lcity" : "Pune"
+}
+{
+	"_id" : ObjectId("6576e57bae5a4febbd618e1e"),
+	"lid" : 103,
+	"cname" : "Mr.Sharma",
+	"ltype" : "educationloan",
+	"lamount" : 190000,
+	"lcity" : "Mumbai"
+}
+{
+	"_id" : ObjectId("6576e8a9ae5a4febbd618e1f"),
+	"lid" : 104,
+	"cname" : "Mr.Patel",
+	"ltype" : "educationloan",
+	"lamount" : 120000,
+	"lcity" : "Pimpri"
+}
+}
+> db.loan.find({lcity:"Pimpri"}).sort({cname:-1}).pretty()
+{
+	"_id" : ObjectId("6576e8a9ae5a4febbd618e1f"),
+	"lid" : 104,
+	"cname" : "Mr.Patel",
+	"ltype" : "educationloan",
+	"lamount" : 120000,
+	"lcity" : "Pimpri"
+}
+{
+	"_id" : ObjectId("6576e4f5ae5a4febbd618e1c"),
+	"lid" : 101,
+	"cname" : "Dipali",
+	"ltype" : "HomeLoan",
+	"lamount" : 150000,
+	"lcity" : "Pimpri"
+}
+> db.loan.find({}).sort({"lamount":-1}).limit(1).pretty()
+{
+	"_id" : ObjectId("6576e57bae5a4febbd618e1e"),
+	"lid" : 103,
+	"cname" : "Mr.Sharma",
+	"ltype" : "educationloan",
+	"lamount" : 190000,
+	"lcity" : "Mumbai"
+> db.customer.update({address:"Pimpri"},{$set:{address:"Pune"}})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.customer.find({}).pretty()
+{
+	"_id" : ObjectId("6576e2caae5a4febbd618e19"),
+	"cid" : 1,
+	"cname" : "Dipali",
+	"address" : "Pune"
+}
+{
+	"_id" : ObjectId("6576e2e5ae5a4febbd618e1a"),
+	"cid" : 2,
+	"cname" : "Mr.Patil",
+	"address" : "Pune"
+}
+{
+	"_id" : ObjectId("6576e314ae5a4febbd618e1b"),
+	"cid" : 3,
+	"cname" : "Mr.Sharma",
+	"address" : "Pune"
+}
+
+slip6 
+use customerpolicy
+switched to db customerpolicy
+> db.customer.insert({cid:1,cname:"Johndoe",pname:"Komaljeevan"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:2,cname:"Janesmith",pname:"Komaljeevan"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:3,cname:"Janesmith",pname:"Terminsurance"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:4,cname:"Bobjohnson",pname:"monthly"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:5,cname:"Alicebrown",pname:"Quaterly"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:6,cname:"Charliegreen",pname:"Halfyearly"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.find({}).pretty()
+{
+	"_id" : ObjectId("657957d4e8c81c4ffe4e457d"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"pname" : "Komaljeevan"
+}
+{
+	"_id" : ObjectId("657957ede8c81c4ffe4e457e"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"pname" : "Komaljeevan"
+}
+{
+	"_id" : ObjectId("6579580fe8c81c4ffe4e457f"),
+	"cid" : 3,
+	"cname" : "Janesmith",
+	"pname" : "Terminsurance"
+}
+{
+	"_id" : ObjectId("65795838e8c81c4ffe4e4580"),
+	"cid" : 4,
+	"cname" : "Bobjohnson",
+	"pname" : "monthly"
+}
+{
+	"_id" : ObjectId("6579585ee8c81c4ffe4e4581"),
+	"cid" : 5,
+	"cname" : "Alicebrown",
+	"pname" : "Quaterly"
+}
+{
+	"_id" : ObjectId("6579589fe8c81c4ffe4e4582"),
+	"cid" : 6,
+	"cname" : "Charliegreen",
+	"pname" : "Halfyearly"
+}
+> db.policy.insert({pid:101,pname:"Komaljeevan",pamount:5000})
+WriteResult({ "nInserted" : 1 })
+> db.policy.insert({pid:102,pname:"Terminsurance",pamount:3000})
+WriteResult({ "nInserted" : 1 })
+> db.policy.insert({pid:103,pname:"Monthly",pamount:100})
+WriteResult({ "nInserted" : 1 })
+> db.policy.insert({pid:104,pname:"Quaterly",pamount:250})
+WriteResult({ "nInserted" : 1 })
+> db.policy.insert({pid:105,pname:"Halfyearly",pamount:500})
+WriteResult({ "nInserted" : 1 })
+> db.policy.find({}).pretty()
+{
+	"_id" : ObjectId("657958ffe8c81c4ffe4e4583"),
+	"pid" : 101,
+	"pname" : "Komaljeevan",
+	"pamount" : 5000
+}
+{
+	"_id" : ObjectId("6579591be8c81c4ffe4e4584"),
+	"pid" : 102,
+	"pname" : "Terminsurance",
+	"pamount" : 3000
+}
+{
+	"_id" : ObjectId("65795932e8c81c4ffe4e4585"),
+	"pid" : 103,
+	"pname" : "Monthly",
+	"pamount" : 100
+}
+{
+	"_id" : ObjectId("65795953e8c81c4ffe4e4586"),
+	"pid" : 104,
+	"pname" : "Quaterly",
+	"pamount" : 250
+}
+{
+	"_id" : ObjectId("6579596ce8c81c4ffe4e4587"),
+	"pid" : 105,
+	"pname" : "Halfyearly",
+	"pamount" : 500
+}
+> db.customer.find({pname:"Komaljeevan"}).pretty()
+{
+	"_id" : ObjectId("657957d4e8c81c4ffe4e457d"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"pname" : "Komaljeevan"
+}
+{
+	"_id" : ObjectId("657957ede8c81c4ffe4e457e"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"pname" : "Komaljeevan"
+}
+> db.customer.find({pname:"Halfearly"}).pretty()
+> db.customer.find({pname:"Halfyearly"}).pretty()
+{
+	"_id" : ObjectId("6579589fe8c81c4ffe4e4582"),
+	"cid" : 6,
+	"cname" : "Charliegreen",
+	"pname" : "Halfyearly"
+}
+
+
+slip8
+> use inventory
+switched to db inventory
+> db.item.insert({iid:1,iname:"Laptop",itags:3,istatus:"A",iheight:10.5,iquantity:400})
+WriteResult({ "nInserted" : 1 })
+> db.item.insert({iid:2,iname:"Planner",itags:4,istatus:"B",iheight:8.2,iquantity:400})
+WriteResult({ "nInserted" : 1 })
+> db.item.insert({iid:3,iname:"Headphones",itags:2,istatus:"C",iheight:6.5,iquantity:20})
+WriteResult({ "nInserted" : 1 })
+> db.item.insert({iid:4,iname:"Chair",itags:5,istatus:"A",iheight:12,iquantity:30})
+WriteResult({ "nInserted" : 1 })
+> db.item.insert({iid:5,iname:"Desk",itags:3,istatus:"B",iheight:9.8,iquantity:150})
+WriteResult({ "nInserted" : 1 })
+> db.item.find({}).pretty()
+{
+	"_id" : ObjectId("657960d1e8c81c4ffe4e4588"),
+	"iid" : 1,
+	"iname" : "Laptop",
+	"itags" : "A",
+	"istatus" : 10,
+	"iheight" : 5,
+	"iquantity" : 400
+{
+	"_id" : ObjectId("6579654dd63acaf40d14526b"),
+	"iid" : 2,
+	"iname" : "Planner",
+	"itags" : 4,
+	"istatus" : "B",
+	"iheight" : 8.2,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("657965b7d63acaf40d14526c"),
+	"iid" : 3,
+	"iname" : "Headphones",
+	"itags" : 2,
+	"istatus" : "C",
+	"iheight" : 6.5,
+	"iquantity" : 20
+}
+{
+	"_id" : ObjectId("657965ecd63acaf40d14526d"),
+	"iid" : 4,
+	"iname" : "Chair",
+	"itags" : 5,
+	"istatus" : "A",
+	"iheight" : 12,
+	"iquantity" : 30
+}
+{
+	"_id" : ObjectId("65796641d63acaf40d14526e"),
+	"iid" : 5,
+	"iname" : "Desk",
+	"itags" : 3,
+	"istatus" : "B",
+	"iheight" : 9.8,
+	"iquantity" : 150
+}
+> db.warehouse.insert({wid:101,wname:"mainwarehouse"})
+WriteResult({ "nInserted" : 1 })
+> db.warehouse.insert({wid:102,wname:"backupwarehouse"})
+WriteResult({ "nInserted" : 1 })
+> db.warehouse.insert({wid:103,wname:"localwarehouse"})
+WriteResult({ "nInserted" : 1 })
+> db.warehouse.find({}).pretty()
+{
+	"_id" : ObjectId("657962543f7f94a707a82966"),
+	"wid" : 101,
+	"wname" : "Mainwarehouse"
+}
+{
+	"_id" : ObjectId("657962703f7f94a707a82967"),
+	"wid" : 102,
+	"wname" : "Backupwarehouse"
+}
+{
+	"_id" : ObjectId("657962833f7f94a707a82968"),
+	"wid" : 103,
+	"wname" : "Localstorage"
+}
+{
+	"_id" : ObjectId("65796697d63acaf40d14526f"),
+	"wid" : 101,
+	"wname" : "mainwarehouse"
+}
+{
+	"_id" : ObjectId("657966a7d63acaf40d145270"),
+	"wid" : 102,
+	"wname" : "backupwarehouse"
+}
+{
+	"_id" : ObjectId("657966b6d63acaf40d145271"),
+	"wid" : 103,
+	"wname" : "localwarehouse"
+}
+> db.item.find({iquantity:{$gt:300}}).pretty()
+{
+	"_id" : ObjectId("657960d1e8c81c4ffe4e4588"),
+	"iid" : 1,
+	"iname" : "Laptop",
+	"itags" : "A",
+	"istatus" : 10,
+	"iheight" : 5,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("6579652ad63acaf40d14526a"),
+	"iid" : 1,
+	"iname" : "Laptop",
+	"itags" : 3,
+	"istatus" : "A",
+	"iheight" : 10.5,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("6579654dd63acaf40d14526b"),
+	"iid" : 2,
+	"iname" : "Planner",
+	"itags" : 4,
+	"istatus" : "B",
+	"iheight" : 8.2,
+	"iquantity" : 400
+}
+> db.item.find({itags:{$lt:5}}).pretty()
+{
+	"_id" : ObjectId("6579652ad63acaf40d14526a"),
+	"iid" : 1,
+	"iname" : "Laptop",
+	"itags" : 3,
+	"istatus" : "A",
+	"iheight" : 10.5,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("6579654dd63acaf40d14526b"),
+	"iid" : 2,
+	"iname" : "Planner",
+	"itags" : 4,
+	"istatus" : "B",
+	"iheight" : 8.2,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("657965b7d63acaf40d14526c"),
+	"iid" : 3,
+	"iname" : "Headphones",
+	"itags" : 2,
+	"istatus" : "C",
+	"iheight" : 6.5,
+	"iquantity" : 20
+}
+{
+	"_id" : ObjectId("65796641d63acaf40d14526e"),
+	"iid" : 5,
+	"iname" : "Desk",
+	"itags" : 3,
+	"istatus" : "B",
+	"iheight" : 9.8,
+	"iquantity" : 150
+}
+> db.item.find({$and:[{istatus:{$eq:"B"}},{iheight:{$lt:50}}]}).pretty()
+{
+	"_id" : ObjectId("6579654dd63acaf40d14526b"),
+	"iid" : 2,
+	"iname" : "Planner",
+	"itags" : 4,
+	"istatus" : "B",
+	"iheight" : 8.2,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("65796641d63acaf40d14526e"),
+	"iid" : 5,
+	"iname" : "Desk",
+	"itags" : 3,
+	"istatus" : "B",
+	"iheight" : 9.8,
+	"iquantity" : 150
+}
+ db.item.find({$and:[{iname:"Planner"},{iquantity:{$lt:20}}]}).pretty()
+
+slip7
+> use banking
+switched to db banking
+> db.customer.insert({cid:1,cname:"Johndoe",atype:"Saving",adate:'2020-01-01'})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:2,cname:"Bobjohnson",atype:"checking",adate:'2020-01-01'})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:3,cname:"Janesmith",atype:"loan",adate:'2020-03-15'})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:4,cname:"Alicebrown",atype:"saving",adate:'2020-01-01'})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:5,cname:"Charliegreen",atype:"loan",adate:'2020-02-10'})
+WriteResult({ "nInserted" : 1 })
+> db.customer.find({}).pretty()
+{
+	"_id" : ObjectId("65797352153deb3df89095ff"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"odate" : "2020-01-02",
+	"atype" : "Saving"
+}
+{
+	"_id" : ObjectId("6579742e9966502142f3eb7c"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("657974529966502142f3eb7d"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"atype" : "Downtown",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("657974819966502142f3eb7e"),
+	"cid" : 3,
+	"cname" : "Bobjohnson",
+	"atype" : "Main",
+	"adate" : "2020-03-15"
+}
+{
+	"_id" : ObjectId("6579751eb47ed6868cce1410"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("6579754eb47ed6868cce1411"),
+	"cid" : 2,
+	"cname" : "Bobjohnson",
+	"atype" : "checking",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("6579758eb47ed6868cce1412"),
+	"cid" : 3,
+	"cname" : "Janesmith",
+	"atype" : "loan",
+	"adate" : "2020-03-15"
+}
+{
+	"_id" : ObjectId("657975c7b47ed6868cce1413"),
+	"cid" : 4,
+	"cname" : "Alicebrown",
+	"atype" : "saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("657975f4b47ed6868cce1414"),
+	"cid" : 5,
+	"cname" : "Charliegreen",
+	"atype" : "loan",
+	"adate" : "2020-02-10"
+}
+> db.account.insert({aid:101,branch:"main",tdate:'2020-01-02',amount:500})
+WriteResult({ "nInserted" : 1 })
+> db.account.insert({aid:102,branch:"downtown",tdate:'2020-01-05',amount:200})
+WriteResult({ "nInserted" : 1 })
+> db.account.insert({aid:103,branch:"main",tdate:'2020-03-20',amount:1000})
+WriteResult({ "nInserted" : 1 })
+> db.account.insert({aid:104,branch:"downtown",tdate:'2020-01-03',amount:300})
+WriteResult({ "nInserted" : 1 })
+> db.account.insert({aid:105,branch:"main",tdate:'2020-02-15',amount:800})
+WriteResult({ "nInserted" : 1 })
+> db.account.find({}).pretty()
+{
+	"_id" : ObjectId("65797755b47ed6868cce1415"),
+	"aid" : 101,
+	"branch" : "main",
+	"tdate" : "2020-01-02",
+	"amount" : 500
+}
+{
+	"_id" : ObjectId("65797766b47ed6868cce1416"),
+	"aid" : 102,
+	"branch" : "downtown",
+	"tdate" : "2020-01-05",
+	"amount" : 200
+}
+{
+	"_id" : ObjectId("65797795b47ed6868cce1417"),
+	"aid" : 103,
+	"branch" : "main",
+	"tdate" : "2020-03-20",
+	"amount" : 1000
+}
+{
+	"_id" : ObjectId("657977ceb47ed6868cce1418"),
+	"aid" : 104,
+	"branch" : "downtown",
+	"tdate" : "2020-01-03",
+	"amount" : 300
+}
+{
+	"_id" : ObjectId("657977fdb47ed6868cce1419"),
+	"aid" : 105,
+	"branch" : "main",
+	"tdate" : "2020-02-15",
+	"amount" : 800
+}
+> db.customer.find({cname:/^C/}).pretty()
+{
+	"_id" : ObjectId("657975f4b47ed6868cce1414"),
+	"cid" : 5,
+	"cname" : "Charliegreen",
+	"atype" : "loan",
+	"adate" : "2020-02-10"
+}
+> db.customer.find({adate:"2020-01-01"}).pretty()
+{
+	"_id" : ObjectId("6579742e9966502142f3eb7c"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("657974529966502142f3eb7d"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"atype" : "Downtown",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("6579751eb47ed6868cce1410"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("6579754eb47ed6868cce1411"),
+	"cid" : 2,
+	"cname" : "Bobjohnson",
+	"atype" : "checking",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("657975c7b47ed6868cce1413"),
+	"cid" : 4,
+	"cname" : "Alicebrown",
+	"atype" : "saving",
+	"adate" : "2020-01-01"
+}
+> db.customer.find({atype:"Saving"}).pretty()
+{
+	"_id" : ObjectId("65797352153deb3df89095ff"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"odate" : "2020-01-02",
+	"atype" : "Saving"
+}
+{
+	"_id" : ObjectId("6579742e9966502142f3eb7c"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("6579751eb47ed6868cce1410"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+
+
+
+slip 10
+
+use purchaseproduct
+switched to db purchaseproduct
+> db.customer.insert({cid:1'cname:Johndoe,city:"Newyork",pdate:'2023-08-15',amount:1200})
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:25
+> db.customer.insert({cid:1,cname:Johndoe,city:"Newyork",pdate:'2023-08-15',amount:1200})
+uncaught exception: ReferenceError: Johndoe is not defined :
+@(shell):1:27
+> db.customer.insert({cid:1,cname:"Johndoe",city:"Newyork",pdate:'2023-08-15',amount:1200})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:2,cname:"Janesmith",city:"Losangeles",pdate:'2023-08-15',amount:80})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:3,cname:"Bobjohnson",city:"Chicago",pdate:'2023-08-15',amount:500})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:4,cname:"Alicebrown",city:"Chicago",pdate:'2023-08-15',amount:500})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:5,cname:"Charliegreen",city:"Houston",pdate:'2023-08-15',amount:1000})
+WriteResult({ "nInserted" : 1 })
+> db.customer.find({}).pretty()
+{
+	"_id" : ObjectId("65797f3426d96f3e6a852707"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"city" : "Newyork",
+	"pdate" : "2023-08-15",
+	"amount" : 1200
+}
+{
+	"_id" : ObjectId("65797f7826d96f3e6a852708"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"city" : "Losangeles",
+	"pdate" : "2023-08-15",
+	"amount" : 80
+}
+{
+	"_id" : ObjectId("65797fa926d96f3e6a852709"),
+	"cid" : 3,
+	"cname" : "Bobjohnson",
+	"city" : "Chicago",
+	"pdate" : "2023-08-15",
+	"amount" : 500
+}
+{
+	"_id" : ObjectId("65797fea26d96f3e6a85270a"),
+	"cid" : 4,
+	"cname" : "Alicebrown",
+	"city" : "Chicago",
+	"pdate" : "2023-08-15",
+	"amount" : 500
+}
+{
+	"_id" : ObjectId("6579808726d96f3e6a85270b"),
+	"cid" : 5,
+	"cname" : "Charliegreen",
+	"city" : "Houston",
+	"pdate" : "2023-08-15",
+	"amount" : 1000
+}
+> db.product.insert({pid:101,pname:"Laptop",bname:"BrandA",wperiod:1,rating:4.5})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:102,pname:"Smartphone",bname:"BrandB",wperiod:2,rating:3.8})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:103,pname:"Headphones",bname:"BrandC",wperiod:1,rating:4})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:104,pname:"TV",bname:"BrandA",wperiod:2,rating:4.2})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:105,pname:"Refrigerator",bname:"BrandB",wperiod:1,rating:4.8})
+WriteResult({ "nInserted" : 1 })
+> db.product.find({}).pretty()
+{
+	"_id" : ObjectId("6579813d26d96f3e6a85270c"),
+	"pid" : 101,
+	"pname" : "Laptop",
+	"bname" : "BrandA",
+	"wperiod" : 1,
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("6579816526d96f3e6a85270d"),
+	"pid" : 102,
+	"pname" : "Smartphone",
+	"bname" : "BrandB",
+	"wperiod" : 2,
+	"rating" : 3.8
+}
+{
+	"_id" : ObjectId("6579818c26d96f3e6a85270e"),
+	"pid" : 103,
+	"pname" : "Headphones",
+	"bname" : "BrandC",
+	"wperiod" : 1,
+	"rating" : 4
+}
+{
+	"_id" : ObjectId("657981ac26d96f3e6a85270f"),
+	"pid" : 104,
+	"pname" : "TV",
+	"bname" : "BrandA",
+	"wperiod" : 2,
+	"rating" : 4.2
+}
+{
+	"_id" : ObjectId("657981f126d96f3e6a852710"),
+	"pid" : 105,
+	"pname" : "Refrigerator",
+	"bname" : "BrandB",
+	"wperiod" : 1,
+	"rating" : 4.8
+}
+> db.product.find({wperiod:1}).pretty()
+{
+	"_id" : ObjectId("6579813d26d96f3e6a85270c"),
+	"pid" : 101,
+	"pname" : "Laptop",
+	"bname" : "BrandA",
+	"wperiod" : 1,
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("6579818c26d96f3e6a85270e"),
+	"pid" : 103,
+	"pname" : "Headphones",
+	"bname" : "BrandC",
+	"wperiod" : 1,
+	"rating" : 4
+}
+{
+	"_id" : ObjectId("657981f126d96f3e6a852710"),
+	"pid" : 105,
+	"pname" : "Refrigerator",
+	"bname" : "BrandB",
+	"wperiod" : 1,
+	"rating" : 4.8
+}
+> db.customer.find({pdate:"2023-08-15"}).pretty()
+{
+	"_id" : ObjectId("65797f3426d96f3e6a852707"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"city" : "Newyork",
+	"pdate" : "2023-08-15",
+	"amount" : 1200
+}
+{
+	"_id" : ObjectId("65797f7826d96f3e6a852708"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"city" : "Losangeles",
+	"pdate" : "2023-08-15",
+	"amount" : 80
+}
+{
+	"_id" : ObjectId("65797fa926d96f3e6a852709"),
+	"cid" : 3,
+	"cname" : "Bobjohnson",
+	"city" : "Chicago",
+	"pdate" : "2023-08-15",
+	"amount" : 500
+}
+{
+	"_id" : ObjectId("65797fea26d96f3e6a85270a"),
+	"cid" : 4,
+	"cname" : "Alicebrown",
+	"city" : "Chicago",
+	"pdate" : "2023-08-15",
+	"amount" : 500
+}
+{
+	"_id" : ObjectId("6579808726d96f3e6a85270b"),
+	"cid" : 5,
+	"cname" : "Charliegreen",
+	"city" : "Houston",
+	"pdate" : "2023-08-15",
+	"amount" : 1000
+}
+> db.product.find().sort({rating:-1}).limit(1).pretty()
+{
+	"_id" : ObjectId("657981f126d96f3e6a852710"),
+	"pid" : 105,
+	"pname" : "Refrigerator",
+	"bname" : "BrandB",
+	"wperiod" : 1,
+	"rating" : 4.8
+}
+> db.customer.find({city:"Newyork"}).pretty()
+{
+	"_id" : ObjectId("65797f3426d96f3e6a852707"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"city" : "Newyork",
+	"pdate" : "2023-08-15",
+	"amount" : 1200
+}
+
+slip6 
+use customerpolicy
+switched to db customerpolicy
+> db.customer.insert({cid:1,cname:"Johndoe",pname:"Komaljeevan"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:2,cname:"Janesmith",pname:"Komaljeevan"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:3,cname:"Janesmith",pname:"Terminsurance"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:4,cname:"Bobjohnson",pname:"monthly"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:5,cname:"Alicebrown",pname:"Quaterly"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:6,cname:"Charliegreen",pname:"Halfyearly"})
+WriteResult({ "nInserted" : 1 })
+> db.customer.find({}).pretty()
+{
+	"_id" : ObjectId("657957d4e8c81c4ffe4e457d"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"pname" : "Komaljeevan"
+}
+{
+	"_id" : ObjectId("657957ede8c81c4ffe4e457e"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"pname" : "Komaljeevan"
+}
+{
+	"_id" : ObjectId("6579580fe8c81c4ffe4e457f"),
+	"cid" : 3,
+	"cname" : "Janesmith",
+	"pname" : "Terminsurance"
+}
+{
+	"_id" : ObjectId("65795838e8c81c4ffe4e4580"),
+	"cid" : 4,
+	"cname" : "Bobjohnson",
+	"pname" : "monthly"
+}
+{
+	"_id" : ObjectId("6579585ee8c81c4ffe4e4581"),
+	"cid" : 5,
+	"cname" : "Alicebrown",
+	"pname" : "Quaterly"
+}
+{
+	"_id" : ObjectId("6579589fe8c81c4ffe4e4582"),
+	"cid" : 6,
+	"cname" : "Charliegreen",
+	"pname" : "Halfyearly"
+}
+> db.policy.insert({pid:101,pname:"Komaljeevan",pamount:5000})
+WriteResult({ "nInserted" : 1 })
+> db.policy.insert({pid:102,pname:"Terminsurance",pamount:3000})
+WriteResult({ "nInserted" : 1 })
+> db.policy.insert({pid:103,pname:"Monthly",pamount:100})
+WriteResult({ "nInserted" : 1 })
+> db.policy.insert({pid:104,pname:"Quaterly",pamount:250})
+WriteResult({ "nInserted" : 1 })
+> db.policy.insert({pid:105,pname:"Halfyearly",pamount:500})
+WriteResult({ "nInserted" : 1 })
+> db.policy.find({}).pretty()
+{
+	"_id" : ObjectId("657958ffe8c81c4ffe4e4583"),
+	"pid" : 101,
+	"pname" : "Komaljeevan",
+	"pamount" : 5000
+}
+{
+	"_id" : ObjectId("6579591be8c81c4ffe4e4584"),
+	"pid" : 102,
+	"pname" : "Terminsurance",
+	"pamount" : 3000
+}
+{
+	"_id" : ObjectId("65795932e8c81c4ffe4e4585"),
+	"pid" : 103,
+	"pname" : "Monthly",
+	"pamount" : 100
+}
+{
+	"_id" : ObjectId("65795953e8c81c4ffe4e4586"),
+	"pid" : 104,
+	"pname" : "Quaterly",
+	"pamount" : 250
+}
+{
+	"_id" : ObjectId("6579596ce8c81c4ffe4e4587"),
+	"pid" : 105,
+	"pname" : "Halfyearly",
+	"pamount" : 500
+}
+> db.customer.find({pname:"Komaljeevan"}).pretty()
+{
+	"_id" : ObjectId("657957d4e8c81c4ffe4e457d"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"pname" : "Komaljeevan"
+}
+{
+	"_id" : ObjectId("657957ede8c81c4ffe4e457e"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"pname" : "Komaljeevan"
+}
+> db.customer.find({pname:"Halfearly"}).pretty()
+> db.customer.find({pname:"Halfyearly"}).pretty()
+{
+	"_id" : ObjectId("6579589fe8c81c4ffe4e4582"),
+	"cid" : 6,
+	"cname" : "Charliegreen",
+	"pname" : "Halfyearly"
+}
+
+
+slip8
+> use inventory
+switched to db inventory
+> db.item.insert({iid:1,iname:"Laptop",itags:3,istatus:"A",iheight:10.5,iquantity:400})
+WriteResult({ "nInserted" : 1 })
+> db.item.insert({iid:2,iname:"Planner",itags:4,istatus:"B",iheight:8.2,iquantity:400})
+WriteResult({ "nInserted" : 1 })
+> db.item.insert({iid:3,iname:"Headphones",itags:2,istatus:"C",iheight:6.5,iquantity:20})
+WriteResult({ "nInserted" : 1 })
+> db.item.insert({iid:4,iname:"Chair",itags:5,istatus:"A",iheight:12,iquantity:30})
+WriteResult({ "nInserted" : 1 })
+> db.item.insert({iid:5,iname:"Desk",itags:3,istatus:"B",iheight:9.8,iquantity:150})
+WriteResult({ "nInserted" : 1 })
+> db.item.find({}).pretty()
+{
+	"_id" : ObjectId("657960d1e8c81c4ffe4e4588"),
+	"iid" : 1,
+	"iname" : "Laptop",
+	"itags" : "A",
+	"istatus" : 10,
+	"iheight" : 5,
+	"iquantity" : 400
+{
+	"_id" : ObjectId("6579654dd63acaf40d14526b"),
+	"iid" : 2,
+	"iname" : "Planner",
+	"itags" : 4,
+	"istatus" : "B",
+	"iheight" : 8.2,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("657965b7d63acaf40d14526c"),
+	"iid" : 3,
+	"iname" : "Headphones",
+	"itags" : 2,
+	"istatus" : "C",
+	"iheight" : 6.5,
+	"iquantity" : 20
+}
+{
+	"_id" : ObjectId("657965ecd63acaf40d14526d"),
+	"iid" : 4,
+	"iname" : "Chair",
+	"itags" : 5,
+	"istatus" : "A",
+	"iheight" : 12,
+	"iquantity" : 30
+}
+{
+	"_id" : ObjectId("65796641d63acaf40d14526e"),
+	"iid" : 5,
+	"iname" : "Desk",
+	"itags" : 3,
+	"istatus" : "B",
+	"iheight" : 9.8,
+	"iquantity" : 150
+}
+> db.warehouse.insert({wid:101,wname:"mainwarehouse"})
+WriteResult({ "nInserted" : 1 })
+> db.warehouse.insert({wid:102,wname:"backupwarehouse"})
+WriteResult({ "nInserted" : 1 })
+> db.warehouse.insert({wid:103,wname:"localwarehouse"})
+WriteResult({ "nInserted" : 1 })
+> db.warehouse.find({}).pretty()
+{
+	"_id" : ObjectId("657962543f7f94a707a82966"),
+	"wid" : 101,
+	"wname" : "Mainwarehouse"
+}
+{
+	"_id" : ObjectId("657962703f7f94a707a82967"),
+	"wid" : 102,
+	"wname" : "Backupwarehouse"
+}
+{
+	"_id" : ObjectId("657962833f7f94a707a82968"),
+	"wid" : 103,
+	"wname" : "Localstorage"
+}
+{
+	"_id" : ObjectId("65796697d63acaf40d14526f"),
+	"wid" : 101,
+	"wname" : "mainwarehouse"
+}
+{
+	"_id" : ObjectId("657966a7d63acaf40d145270"),
+	"wid" : 102,
+	"wname" : "backupwarehouse"
+}
+{
+	"_id" : ObjectId("657966b6d63acaf40d145271"),
+	"wid" : 103,
+	"wname" : "localwarehouse"
+}
+> db.item.find({iquantity:{$gt:300}}).pretty()
+{
+	"_id" : ObjectId("657960d1e8c81c4ffe4e4588"),
+	"iid" : 1,
+	"iname" : "Laptop",
+	"itags" : "A",
+	"istatus" : 10,
+	"iheight" : 5,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("6579652ad63acaf40d14526a"),
+	"iid" : 1,
+	"iname" : "Laptop",
+	"itags" : 3,
+	"istatus" : "A",
+	"iheight" : 10.5,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("6579654dd63acaf40d14526b"),
+	"iid" : 2,
+	"iname" : "Planner",
+	"itags" : 4,
+	"istatus" : "B",
+	"iheight" : 8.2,
+	"iquantity" : 400
+}
+> db.item.find({itags:{$lt:5}}).pretty()
+{
+	"_id" : ObjectId("6579652ad63acaf40d14526a"),
+	"iid" : 1,
+	"iname" : "Laptop",
+	"itags" : 3,
+	"istatus" : "A",
+	"iheight" : 10.5,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("6579654dd63acaf40d14526b"),
+	"iid" : 2,
+	"iname" : "Planner",
+	"itags" : 4,
+	"istatus" : "B",
+	"iheight" : 8.2,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("657965b7d63acaf40d14526c"),
+	"iid" : 3,
+	"iname" : "Headphones",
+	"itags" : 2,
+	"istatus" : "C",
+	"iheight" : 6.5,
+	"iquantity" : 20
+}
+{
+	"_id" : ObjectId("65796641d63acaf40d14526e"),
+	"iid" : 5,
+	"iname" : "Desk",
+	"itags" : 3,
+	"istatus" : "B",
+	"iheight" : 9.8,
+	"iquantity" : 150
+}
+> db.item.find({$and:[{istatus:{$eq:"B"}},{iheight:{$lt:50}}]}).pretty()
+{
+	"_id" : ObjectId("6579654dd63acaf40d14526b"),
+	"iid" : 2,
+	"iname" : "Planner",
+	"itags" : 4,
+	"istatus" : "B",
+	"iheight" : 8.2,
+	"iquantity" : 400
+}
+{
+	"_id" : ObjectId("65796641d63acaf40d14526e"),
+	"iid" : 5,
+	"iname" : "Desk",
+	"itags" : 3,
+	"istatus" : "B",
+	"iheight" : 9.8,
+	"iquantity" : 150
+}
+ db.item.find({$and:[{iname:"Planner"},{iquantity:{$lt:20}}]}).pretty()
+
+slip7
+> use banking
+switched to db banking
+> db.customer.insert({cid:1,cname:"Johndoe",atype:"Saving",adate:'2020-01-01'})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:2,cname:"Bobjohnson",atype:"checking",adate:'2020-01-01'})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:3,cname:"Janesmith",atype:"loan",adate:'2020-03-15'})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:4,cname:"Alicebrown",atype:"saving",adate:'2020-01-01'})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:5,cname:"Charliegreen",atype:"loan",adate:'2020-02-10'})
+WriteResult({ "nInserted" : 1 })
+> db.customer.find({}).pretty()
+{
+	"_id" : ObjectId("65797352153deb3df89095ff"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"odate" : "2020-01-02",
+	"atype" : "Saving"
+}
+{
+	"_id" : ObjectId("6579742e9966502142f3eb7c"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("657974529966502142f3eb7d"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"atype" : "Downtown",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("657974819966502142f3eb7e"),
+	"cid" : 3,
+	"cname" : "Bobjohnson",
+	"atype" : "Main",
+	"adate" : "2020-03-15"
+}
+{
+	"_id" : ObjectId("6579751eb47ed6868cce1410"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("6579754eb47ed6868cce1411"),
+	"cid" : 2,
+	"cname" : "Bobjohnson",
+	"atype" : "checking",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("6579758eb47ed6868cce1412"),
+	"cid" : 3,
+	"cname" : "Janesmith",
+	"atype" : "loan",
+	"adate" : "2020-03-15"
+}
+{
+	"_id" : ObjectId("657975c7b47ed6868cce1413"),
+	"cid" : 4,
+	"cname" : "Alicebrown",
+	"atype" : "saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("657975f4b47ed6868cce1414"),
+	"cid" : 5,
+	"cname" : "Charliegreen",
+	"atype" : "loan",
+	"adate" : "2020-02-10"
+}
+> db.account.insert({aid:101,branch:"main",tdate:'2020-01-02',amount:500})
+WriteResult({ "nInserted" : 1 })
+> db.account.insert({aid:102,branch:"downtown",tdate:'2020-01-05',amount:200})
+WriteResult({ "nInserted" : 1 })
+> db.account.insert({aid:103,branch:"main",tdate:'2020-03-20',amount:1000})
+WriteResult({ "nInserted" : 1 })
+> db.account.insert({aid:104,branch:"downtown",tdate:'2020-01-03',amount:300})
+WriteResult({ "nInserted" : 1 })
+> db.account.insert({aid:105,branch:"main",tdate:'2020-02-15',amount:800})
+WriteResult({ "nInserted" : 1 })
+> db.account.find({}).pretty()
+{
+	"_id" : ObjectId("65797755b47ed6868cce1415"),
+	"aid" : 101,
+	"branch" : "main",
+	"tdate" : "2020-01-02",
+	"amount" : 500
+}
+{
+	"_id" : ObjectId("65797766b47ed6868cce1416"),
+	"aid" : 102,
+	"branch" : "downtown",
+	"tdate" : "2020-01-05",
+	"amount" : 200
+}
+{
+	"_id" : ObjectId("65797795b47ed6868cce1417"),
+	"aid" : 103,
+	"branch" : "main",
+	"tdate" : "2020-03-20",
+	"amount" : 1000
+}
+{
+	"_id" : ObjectId("657977ceb47ed6868cce1418"),
+	"aid" : 104,
+	"branch" : "downtown",
+	"tdate" : "2020-01-03",
+	"amount" : 300
+}
+{
+	"_id" : ObjectId("657977fdb47ed6868cce1419"),
+	"aid" : 105,
+	"branch" : "main",
+	"tdate" : "2020-02-15",
+	"amount" : 800
+}
+> db.customer.find({cname:/^C/}).pretty()
+{
+	"_id" : ObjectId("657975f4b47ed6868cce1414"),
+	"cid" : 5,
+	"cname" : "Charliegreen",
+	"atype" : "loan",
+	"adate" : "2020-02-10"
+}
+> db.customer.find({adate:"2020-01-01"}).pretty()
+{
+	"_id" : ObjectId("6579742e9966502142f3eb7c"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("657974529966502142f3eb7d"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"atype" : "Downtown",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("6579751eb47ed6868cce1410"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("6579754eb47ed6868cce1411"),
+	"cid" : 2,
+	"cname" : "Bobjohnson",
+	"atype" : "checking",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("657975c7b47ed6868cce1413"),
+	"cid" : 4,
+	"cname" : "Alicebrown",
+	"atype" : "saving",
+	"adate" : "2020-01-01"
+}
+> db.customer.find({atype:"Saving"}).pretty()
+{
+	"_id" : ObjectId("65797352153deb3df89095ff"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"odate" : "2020-01-02",
+	"atype" : "Saving"
+}
+{
+	"_id" : ObjectId("6579742e9966502142f3eb7c"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+{
+	"_id" : ObjectId("6579751eb47ed6868cce1410"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"atype" : "Saving",
+	"adate" : "2020-01-01"
+}
+
+
+
+slip 10
+
+use purchaseproduct
+switched to db purchaseproduct
+> db.customer.insert({cid:1'cname:Johndoe,city:"Newyork",pdate:'2023-08-15',amount:1200})
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:25
+> db.customer.insert({cid:1,cname:Johndoe,city:"Newyork",pdate:'2023-08-15',amount:1200})
+uncaught exception: ReferenceError: Johndoe is not defined :
+@(shell):1:27
+> db.customer.insert({cid:1,cname:"Johndoe",city:"Newyork",pdate:'2023-08-15',amount:1200})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:2,cname:"Janesmith",city:"Losangeles",pdate:'2023-08-15',amount:80})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:3,cname:"Bobjohnson",city:"Chicago",pdate:'2023-08-15',amount:500})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:4,cname:"Alicebrown",city:"Chicago",pdate:'2023-08-15',amount:500})
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({cid:5,cname:"Charliegreen",city:"Houston",pdate:'2023-08-15',amount:1000})
+WriteResult({ "nInserted" : 1 })
+> db.customer.find({}).pretty()
+{
+	"_id" : ObjectId("65797f3426d96f3e6a852707"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"city" : "Newyork",
+	"pdate" : "2023-08-15",
+	"amount" : 1200
+}
+{
+	"_id" : ObjectId("65797f7826d96f3e6a852708"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"city" : "Losangeles",
+	"pdate" : "2023-08-15",
+	"amount" : 80
+}
+{
+	"_id" : ObjectId("65797fa926d96f3e6a852709"),
+	"cid" : 3,
+	"cname" : "Bobjohnson",
+	"city" : "Chicago",
+	"pdate" : "2023-08-15",
+	"amount" : 500
+}
+{
+	"_id" : ObjectId("65797fea26d96f3e6a85270a"),
+	"cid" : 4,
+	"cname" : "Alicebrown",
+	"city" : "Chicago",
+	"pdate" : "2023-08-15",
+	"amount" : 500
+}
+{
+	"_id" : ObjectId("6579808726d96f3e6a85270b"),
+	"cid" : 5,
+	"cname" : "Charliegreen",
+	"city" : "Houston",
+	"pdate" : "2023-08-15",
+	"amount" : 1000
+}
+> db.product.insert({pid:101,pname:"Laptop",bname:"BrandA",wperiod:1,rating:4.5})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:102,pname:"Smartphone",bname:"BrandB",wperiod:2,rating:3.8})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:103,pname:"Headphones",bname:"BrandC",wperiod:1,rating:4})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:104,pname:"TV",bname:"BrandA",wperiod:2,rating:4.2})
+WriteResult({ "nInserted" : 1 })
+> db.product.insert({pid:105,pname:"Refrigerator",bname:"BrandB",wperiod:1,rating:4.8})
+WriteResult({ "nInserted" : 1 })
+> db.product.find({}).pretty()
+{
+	"_id" : ObjectId("6579813d26d96f3e6a85270c"),
+	"pid" : 101,
+	"pname" : "Laptop",
+	"bname" : "BrandA",
+	"wperiod" : 1,
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("6579816526d96f3e6a85270d"),
+	"pid" : 102,
+	"pname" : "Smartphone",
+	"bname" : "BrandB",
+	"wperiod" : 2,
+	"rating" : 3.8
+}
+{
+	"_id" : ObjectId("6579818c26d96f3e6a85270e"),
+	"pid" : 103,
+	"pname" : "Headphones",
+	"bname" : "BrandC",
+	"wperiod" : 1,
+	"rating" : 4
+}
+{
+	"_id" : ObjectId("657981ac26d96f3e6a85270f"),
+	"pid" : 104,
+	"pname" : "TV",
+	"bname" : "BrandA",
+	"wperiod" : 2,
+	"rating" : 4.2
+}
+{
+	"_id" : ObjectId("657981f126d96f3e6a852710"),
+	"pid" : 105,
+	"pname" : "Refrigerator",
+	"bname" : "BrandB",
+	"wperiod" : 1,
+	"rating" : 4.8
+}
+> db.product.find({wperiod:1}).pretty()
+{
+	"_id" : ObjectId("6579813d26d96f3e6a85270c"),
+	"pid" : 101,
+	"pname" : "Laptop",
+	"bname" : "BrandA",
+	"wperiod" : 1,
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("6579818c26d96f3e6a85270e"),
+	"pid" : 103,
+	"pname" : "Headphones",
+	"bname" : "BrandC",
+	"wperiod" : 1,
+	"rating" : 4
+}
+{
+	"_id" : ObjectId("657981f126d96f3e6a852710"),
+	"pid" : 105,
+	"pname" : "Refrigerator",
+	"bname" : "BrandB",
+	"wperiod" : 1,
+	"rating" : 4.8
+}
+> db.customer.find({pdate:"2023-08-15"}).pretty()
+{
+	"_id" : ObjectId("65797f3426d96f3e6a852707"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"city" : "Newyork",
+	"pdate" : "2023-08-15",
+	"amount" : 1200
+}
+{
+	"_id" : ObjectId("65797f7826d96f3e6a852708"),
+	"cid" : 2,
+	"cname" : "Janesmith",
+	"city" : "Losangeles",
+	"pdate" : "2023-08-15",
+	"amount" : 80
+}
+{
+	"_id" : ObjectId("65797fa926d96f3e6a852709"),
+	"cid" : 3,
+	"cname" : "Bobjohnson",
+	"city" : "Chicago",
+	"pdate" : "2023-08-15",
+	"amount" : 500
+}
+{
+	"_id" : ObjectId("65797fea26d96f3e6a85270a"),
+	"cid" : 4,
+	"cname" : "Alicebrown",
+	"city" : "Chicago",
+	"pdate" : "2023-08-15",
+	"amount" : 500
+}
+{
+	"_id" : ObjectId("6579808726d96f3e6a85270b"),
+	"cid" : 5,
+	"cname" : "Charliegreen",
+	"city" : "Houston",
+	"pdate" : "2023-08-15",
+	"amount" : 1000
+}
+> db.product.find().sort({rating:-1}).limit(1).pretty()
+{
+	"_id" : ObjectId("657981f126d96f3e6a852710"),
+	"pid" : 105,
+	"pname" : "Refrigerator",
+	"bname" : "BrandB",
+	"wperiod" : 1,
+	"rating" : 4.8
+}
+> db.customer.find({city:"Newyork"}).pretty()
+{
+	"_id" : ObjectId("65797f3426d96f3e6a852707"),
+	"cid" : 1,
+	"cname" : "Johndoe",
+	"city" : "Newyork",
+	"pdate" : "2023-08-15",
+	"amount" : 1200
+}
+
+
+slip4
+> use hospital
+switched to db hospital
+> db.hospital.insert({hname:"cityhospital",city:"Nashik",specialization:"Pediatric",dname:"Dr.deshmukh",rating:4.5})
+WriteResult({ "nInserted" : 1 })
+> db.hospital.insert({hname:"Pediatriccare",city:"Nashik",specialization:"Pediatric",dname:"Dr.patel",rating:3.8})
+WriteResult({ "nInserted" : 1 })
+> db.hospital.insert({hname:"Orthoclinic",city:"Mumbai",specialization:"Gynaecology",dname:"Dr.Singh",rating:4.2})
+WriteResult({ "nInserted" : 1 })
+> db.hospital.insert({hname:"Gynaecologycenter",city:"Nashik",specialization:"Gynaecology",dname:"Dr.Sharma",rating:4.9})
+WriteResult({ "nInserted" : 1 })
+> db.hospital.insert({hname:"Speciaalityhospital",city:"Pune",specialization:"Orthopedic",dname:"Dr.Gupta",rating:3.5})
+WriteResult({ "nInserted" : 1 })
+> db.hospital.insert({hname:"generalhospital",city:"Nashik",specialization:"General",dname:"Dr.deshmukh",rating:4.7})
+WriteResult({ "nInserted" : 1 })
+> db.hospital.insert({hname:"ortho&more",city:"Nashik",specialization:"General",dname:"Dr.Sharma",rating:3.0})
+WriteResult({ "nInserted" : 1 })
+> db.hospital.insert({hname:"Metrohospital",city:"Mumbai",specialization:"Pediatric",dname:"Dr.Gupta",rating:4.1})
+WriteResult({ "nInserted" : 1 })
+> db.hospital.insert({hname:"Womenshealthcare",city:"Nashik",specialization:"Orthopedic",dname:"Dr.Singh",rating:8.2})
+WriteResult({ "nInserted" : 1 })
+> db.hospital.insert({hname:"Childwellnessclinic",city:"Pune",specialization:"General",dname:"Dr.Patel",rating:5.3})
+WriteResult({ "nInserted" : 1 })
+> db.hospital.find({}).pretty()
+{
+	"_id" : ObjectId("657abdb6e7efdf50d9a6198e"),
+	"hname" : "cityhospital",
+	"city" : "Nashik",
+	"specialization" : "Pediatric",
+	"dname" : "Dr.deshmukh",
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("657abdffe7efdf50d9a6198f"),
+	"hname" : "Pediatriccare",
+	"city" : "Nashik",
+	"specialization" : "Pediatric",
+	"dname" : "Dr.patel",
+	"rating" : 3.8
+}
+{
+	"_id" : ObjectId("657abe4de7efdf50d9a61990"),
+	"hname" : "Orthoclinic",
+	"city" : "Mumbai",
+	"specialization" : "Gynaecology",
+	"dname" : "Dr.Singh",
+	"rating" : 4.2
+}
+{
+	"_id" : ObjectId("657abe8fe7efdf50d9a61991"),
+	"hname" : "Gynaecologycenter",
+	"city" : "Nashik",
+	"specialization" : "Gynaecology",
+	"dname" : "Dr.Sharma",
+	"rating" : 4.9
+}
+{
+	"_id" : ObjectId("657abf26e7efdf50d9a61992"),
+	"hname" : "Speciaalityhospital",
+	"city" : "Pune",
+	"specialization" : "Orthopedic",
+	"dname" : "Dr.Gupta",
+	"rating" : 3.5
+}
+{
+	"_id" : ObjectId("657ac09de7efdf50d9a61993"),
+	"hname" : "generalhospital",
+	"city" : "Nashik",
+	"specialization" : "General",
+	"dname" : "Dr.deshmukh",
+	"rating" : 4.7
+}
+{
+	"_id" : ObjectId("657ac0d2e7efdf50d9a61994"),
+	"hname" : "ortho&more",
+	"city" : "Nashik",
+	"specialization" : "General",
+	"dname" : "Dr.Sharma",
+	"rating" : 3
+}
+{
+	"_id" : ObjectId("657ac112e7efdf50d9a61995"),
+	"hname" : "Metrohospital",
+	"city" : "Mumbai",
+	"specialization" : "Pediatric",
+	"dname" : "Dr.Gupta",
+	"rating" : 4.1
+}
+{
+	"_id" : ObjectId("657ac14ce7efdf50d9a61996"),
+	"hname" : "Womenshealthcare",
+	"city" : "Nashik",
+	"specialization" : "Orthopedic",
+	"dname" : "Dr.Singh",
+	"rating" : 8.2
+}
+{
+	"_id" : ObjectId("657ac198e7efdf50d9a61997"),
+	"hname" : "Childwellnessclinic",
+	"city" : "Pune",
+	"specialization" : "General",
+	"dname" : "Dr.Patel",
+	"rating" : 5.3
+}
+> db.review.insert({rid:1,hid:1,rname:"Patient1"})
+WriteResult({ "nInserted" : 1 })
+> db.review.insert({rid:2,hid:2,rname:"Patient2"})
+WriteResult({ "nInserted" : 1 })
+> db.review.insert({rid:3,hid:3,rname:"Patient3"})
+WriteResult({ "nInserted" : 1 })
+> db.review.insert({rid:3,hid:3,rname:"Patient3"})
+WriteResult({ "nInserted" : 1 })
+> db.review.insert({rid:4,hid:4,rname:"Patient4"})
+WriteResult({ "nInserted" : 1 })
+> db.review.insert({rid:5,hid:5,rname:"Patient5"})
+WriteResult({ "nInserted" : 1 })
+> db.review.insert({rid:6,hid:6,rname:"Patient6"})
+WriteResult({ "nInserted" : 1 })
+> db.review.insert({rid:7,hid:7,rname:"Patient7"})
+WriteResult({ "nInserted" : 1 })
+> db.review.insert({rid:8,hid:8,rname:"Patient8"})
+WriteResult({ "nInserted" : 1 })
+> db.review.insert({rid:9,hid:9,rname:"Patient9"})
+WriteResult({ "nInserted" : 1 })
+> db.review.insert({rid:10,hid:10,rname:"Patient10"})
+WriteResult({ "nInserted" : 1 })
+> db.review.find({}).pretty()
+{
+	"_id" : ObjectId("657ac1ffe7efdf50d9a61998"),
+	"rid" : 1,
+	"hid" : 1,
+	"rname" : "Patient1"
+}
+{
+	"_id" : ObjectId("657ac20de7efdf50d9a61999"),
+	"rid" : 2,
+	"hid" : 2,
+	"rname" : "Patient2"
+}
+{
+	"_id" : ObjectId("657ac21de7efdf50d9a6199a"),
+	"rid" : 3,
+	"hid" : 3,
+	"rname" : "Patient3"
+}
+{
+	"_id" : ObjectId("657ac22ee7efdf50d9a6199b"),
+	"rid" : 3,
+	"hid" : 3,
+	"rname" : "Patient3"
+}
+{
+	"_id" : ObjectId("657ac23ce7efdf50d9a6199c"),
+	"rid" : 4,
+	"hid" : 4,
+	"rname" : "Patient4"
+}
+{
+	"_id" : ObjectId("657ac24ae7efdf50d9a6199d"),
+	"rid" : 5,
+	"hid" : 5,
+	"rname" : "Patient5"
+}
+{
+	"_id" : ObjectId("657ac256e7efdf50d9a6199e"),
+	"rid" : 6,
+	"hid" : 6,
+	"rname" : "Patient6"
+}
+{
+	"_id" : ObjectId("657ac262e7efdf50d9a6199f"),
+	"rid" : 7,
+	"hid" : 7,
+	"rname" : "Patient7"
+}
+{
+	"_id" : ObjectId("657ac271e7efdf50d9a619a0"),
+	"rid" : 8,
+	"hid" : 8,
+	"rname" : "Patient8"
+}
+{
+	"_id" : ObjectId("657ac287e7efdf50d9a619a1"),
+	"rid" : 9,
+	"hid" : 9,
+	"rname" : "Patient9"
+}
+{
+	"_id" : ObjectId("657ac29ae7efdf50d9a619a2"),
+	"rid" : 10,
+	"hid" : 10,
+	"rname" : "Patient10"
+}
+> db.hospital.find({specialization:"Pediatric"}).pretty()
+{
+	"_id" : ObjectId("657abdb6e7efdf50d9a6198e"),
+	"hname" : "cityhospital",
+	"city" : "Nashik",
+	"specialization" : "Pediatric",
+	"dname" : "Dr.deshmukh",
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("657abdffe7efdf50d9a6198f"),
+	"hname" : "Pediatriccare",
+	"city" : "Nashik",
+	"specialization" : "Pediatric",
+	"dname" : "Dr.patel",
+	"rating" : 3.8
+}
+{
+	"_id" : ObjectId("657ac112e7efdf50d9a61995"),
+	"hname" : "Metrohospital",
+	"city" : "Mumbai",
+	"specialization" : "Pediatric",
+	"dname" : "Dr.Gupta",
+	"rating" : 4.1
+}
+> db.hospital.find({city:"Nashik"}).pretty()
+{
+	"_id" : ObjectId("657abdb6e7efdf50d9a6198e"),
+	"hname" : "cityhospital",
+	"city" : "Nashik",
+	"specialization" : "Pediatric",
+	"dname" : "Dr.deshmukh",
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("657abdffe7efdf50d9a6198f"),
+	"hname" : "Pediatriccare",
+	"city" : "Nashik",
+	"specialization" : "Pediatric",
+	"dname" : "Dr.patel",
+	"rating" : 3.8
+}
+{
+	"_id" : ObjectId("657abe8fe7efdf50d9a61991"),
+	"hname" : "Gynaecologycenter",
+	"city" : "Nashik",
+	"specialization" : "Gynaecology",
+	"dname" : "Dr.Sharma",
+	"rating" : 4.9
+}
+{
+	"_id" : ObjectId("657ac09de7efdf50d9a61993"),
+	"hname" : "generalhospital",
+	"city" : "Nashik",
+	"specialization" : "General",
+	"dname" : "Dr.deshmukh",
+	"rating" : 4.7
+}
+{
+	"_id" : ObjectId("657ac0d2e7efdf50d9a61994"),
+	"hname" : "ortho&more",
+	"city" : "Nashik",
+	"specialization" : "General",
+	"dname" : "Dr.Sharma",
+	"rating" : 3
+}
+{
+	"_id" : ObjectId("657ac14ce7efdf50d9a61996"),
+	"hname" : "Womenshealthcare",
+	"city" : "Nashik",
+	"specialization" : "Orthopedic",
+	"dname" : "Dr.Singh",
+	"rating" : 8.2
+}
+> db.hospital.find({dname:"Dr.deshmukh"}).pretty()
+{
+	"_id" : ObjectId("657abdb6e7efdf50d9a6198e"),
+	"hname" : "cityhospital",
+	"city" : "Nashik",
+	"specialization" : "Pediatric",
+	"dname" : "Dr.deshmukh",
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("657ac09de7efdf50d9a61993"),
+	"hname" : "generalhospital",
+	"city" : "Nashik",
+	"specialization" : "General",
+	"dname" : "Dr.deshmukh",
+	"rating" : 4.7
+}
+> db.hospital.find({rating:{$gte:4}}).pretty()
+{
+	"_id" : ObjectId("657abdb6e7efdf50d9a6198e"),
+	"hname" : "cityhospital",
+	"city" : "Nashik",
+	"specialization" : "Pediatric",
+	"dname" : "Dr.deshmukh",
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("657abe4de7efdf50d9a61990"),
+	"hname" : "Orthoclinic",
+	"city" : "Mumbai",
+	"specialization" : "Gynaecology",
+	"dname" : "Dr.Singh",
+	"rating" : 4.2
+}
+{
+	"_id" : ObjectId("657abe8fe7efdf50d9a61991"),
+	"hname" : "Gynaecologycenter",
+	"city" : "Nashik",
+	"specialization" : "Gynaecology",
+	"dname" : "Dr.Sharma",
+	"rating" : 4.9
+}
+{
+	"_id" : ObjectId("657ac09de7efdf50d9a61993"),
+	"hname" : "generalhospital",
+	"city" : "Nashik",
+	"specialization" : "General",
+	"dname" : "Dr.deshmukh",
+	"rating" : 4.7
+}
+{
+	"_id" : ObjectId("657ac112e7efdf50d9a61995"),
+	"hname" : "Metrohospital",
+	"city" : "Mumbai",
+	"specialization" : "Pediatric",
+	"dname" : "Dr.Gupta",
+	"rating" : 4.1
+}
+{
+	"_id" : ObjectId("657ac14ce7efdf50d9a61996"),
+	"hname" : "Womenshealthcare",
+	"city" : "Nashik",
+	"specialization" : "Orthopedic",
+	"dname" : "Dr.Singh",
+	"rating" : 8.2
+}
+{
+	"_id" : ObjectId("657ac198e7efdf50d9a61997"),
+	"hname" : "Childwellnessclinic",
+	"city" : "Pune",
+	"specialization" : "General",
+	"dname" : "Dr.Patel",
+	"rating" : 5.3
+}
+> 
+
+
+
+slip5
+
+> use project
+switched to db project
+> db.project.insert({pid:1,pname:"project A",ptype:"devlopment",duration_month:6})
+Wrdb.project.insert({pid:2,pname:"project B",ptype:"testing",duration_month:4})
+WriteResult({ "nInserted" : 1 })
+> db.project.insert({pid:.3,pname:"project C",ptype:"design",duration_month:2})
+WriteResult({ "nInserted" : 1 })
+> db.project.insert({pid:.4,pname:"project D",ptype:"devlopment",duration_month:3})
+WriteResult({ "nInserted" : 1 })
+> db.project.insert({pid:5,pname:"project E",ptype:"testing",duration_month:5})
+WriteResult({ "nInserted" : 1 })
+> dp.project.find({}).pretty()
+uncaught exception: ReferenceError: dp is not defined :
+@(shell):1:1
+> db.project.find({}).pretty()
+{
+	"_id" : ObjectId("657b33eeab17ffde806f8163"),
+	"pid" : 1,
+	"pname" : "project A",
+	"ptype" : "devlopment",
+	"duration_month" : 6
+}
+{
+	"_id" : ObjectId("657b341cab17ffde806f8164"),
+	"pid" : 2,
+	"pname" : "project B",
+	"ptype" : "testing",
+	"duration_month" : 4
+}
+{
+	"_id" : ObjectId("657b35c2ab17ffde806f8165"),
+	"pid" : 0.3,
+	"pname" : "project C",
+	"ptype" : "design",
+	"duration_month" : 2
+}
+{
+	"_id" : ObjectId("657b35f5ab17ffde806f8166"),
+	"pid" : 0.4,
+	"pname" : "project D",
+	"ptype" : "devlopment",
+	"duration_month" : 3
+}
+{
+	"_id" : ObjectId("657b368eab17ffde806f8167"),
+	"pid" : 5,
+	"pname" : "project E",
+	"ptype" : "testing",
+	"duration_month" : 5
+}
+{
+	"_id" : ObjectId("657b3e4eaa1ca21243fe4b9d"),
+	"pid" : 1,
+	"pname" : "project A",
+	"ptype" : "devlopment",
+	"duration_month" : 6
+}
+{
+	"_id" : ObjectId("657b3e69aa1ca21243fe4b9e"),
+	"pid" : 2,
+	"pname" : "project B",
+	"ptype" : "testing",
+	"duration_month" : 4
+}
+{
+	"_id" : ObjectId("657b3e7aaa1ca21243fe4b9f"),
+	"pid" : 0.3,
+	"pname" : "project C",
+	"ptype" : "design",
+	"duration_month" : 2
+}
+{
+	"_id" : ObjectId("657b3e98aa1ca21243fe4ba0"),
+	"pid" : 0.4,
+	"pname" : "project D",
+	"ptype" : "devlopment",
+	"duration_month" : 3
+}
+{
+	"_id" : ObjectId("657b3ebfaa1ca21243fe4ba1"),
+	"pid" : 2,
+	"pname" : "project B",
+	"ptype" : "testing",
+	"duration_month" : 4
+}
+{
+	"_id" : ObjectId("657b3ec9aa1ca21243fe4ba2"),
+	"pid" : 0.3,
+	"pname" : "project C",
+	"ptype" : "design",
+	"duration_month" : 2
+}
+{
+	"_id" : ObjectId("657b3ecdaa1ca21243fe4ba3"),
+	"pid" : 0.4,
+	"pname" : "project D",
+	"ptype" : "devlopment",
+	"duration_month" : 3
+}
+{
+	"_id" : ObjectId("657b3edfaa1ca21243fe4ba4"),
+	"pid" : 5,
+	"pname" : "project E",
+	"ptype" : "testing",
+	"duration_month" : 5
+}
+> db.employeeproject.insert({eid:101,pid:1})
+WriteResult({ "nInserted" : 1 })
+> db.employeeproject.insert({eid:102,pid:2})
+WriteResult({ "nInserted" : 1 })
+> db.employeeproject.insert({eid:103,pid:3})
+WriteResult({ "nInserted" : 1 })
+> db.employeeproject.insert({eid:104,pid:4})
+WriteResult({ "nInserted" : 1 })
+> db.employeeproject.insert({eid:105,pid:5})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({eid:101,ename:"mr.patil"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({eid:102,ename:"mr.kumar"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({eid:103,ename:"mr.singh"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({eid:104,ename:"mr.joshi"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({eid:105,ename:"mr.deshmukh"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.find({}).pretty()
+{
+	"_id" : ObjectId("657b372aab17ffde806f8168"),
+	"eid" : 101,
+	"ename" : "mr.patil"
+}
+{
+	"_id" : ObjectId("657b373fab17ffde806f8169"),
+	"eid" : 102,
+	"ename" : "mr.kumar"
+}
+{
+	"_id" : ObjectId("657b3756ab17ffde806f816a"),
+	"eid" : 103,
+	"ename" : "mr.singh"
+}
+{
+	"_id" : ObjectId("657b3766ab17ffde806f816b"),
+	"eid" : 104,
+	"ename" : "mr.joshi"
+}
+{
+	"_id" : ObjectId("657b37a7ab17ffde806f816c"),
+	"eid" : 105,
+	"ename" : "mr.deshmukh"
+}
+{
+	"_id" : ObjectId("657b3f7aaa1ca21243fe4baa"),
+	"eid" : 101,
+	"ename" : "mr.patil"
+}
+{
+	"_id" : ObjectId("657b3f9aaa1ca21243fe4bab"),
+	"eid" : 102,
+	"ename" : "mr.kumar"
+}
+{
+	"_id" : ObjectId("657b3fa6aa1ca21243fe4bac"),
+	"eid" : 103,
+	"ename" : "mr.singh"
+}
+{
+	"_id" : ObjectId("657b3fb8aa1ca21243fe4bad"),
+	"eid" : 104,
+	"ename" : "mr.joshi"
+}
+{
+	"_id" : ObjectId("657b3fd6aa1ca21243fe4bae"),
+	"eid" : 105,
+	"ename" : "mr.deshmukh"
+}
+> db.employeeproject.find({}).pretty()
+{ "_id" : ObjectId("657b3d6eab17ffde806f816d"), "eid" : 101, "pid" : 1 }
+{ "_id" : ObjectId("657b3d76ab17ffde806f816e"), "eid" : 102, "pid" : 2 }
+{ "_id" : ObjectId("657b3d7dab17ffde806f816f"), "eid" : 103, "pid" : 3 }
+{ "_id" : ObjectId("657b3d84ab17ffde806f8170"), "eid" : 104, "pid" : 4 }
+{ "_id" : ObjectId("657b3d8eab17ffde806f8171"), "eid" : 105, "pid" : 5 }
+{ "_id" : ObjectId("657b3f2eaa1ca21243fe4ba5"), "eid" : 101, "pid" : 1 }
+{ "_id" : ObjectId("657b3f36aa1ca21243fe4ba6"), "eid" : 102, "pid" : 2 }
+{ "_id" : ObjectId("657b3f43aa1ca21243fe4ba7"), "eid" : 103, "pid" : 3 }
+{ "_id" : ObjectId("657b3f4daa1ca21243fe4ba8"), "eid" : 104, "pid" : 4 }
+{ "_id" : ObjectId("657b3f55aa1ca21243fe4ba9"), "eid" : 105, "pid" : 5 }
+> db.employee.find({employee:"mr.patil"},{pname:"project A",pid:1}).pretty()
+> db.project.find({duration_month:{ $gt:3 }}).pretty()
+{
+	"_id" : ObjectId("657b33eeab17ffde806f8163"),
+	"pid" : 1,
+	"pname" : "project A",
+	"ptype" : "devlopment",
+	"duration_month" : 6
+}
+{
+	"_id" : ObjectId("657b341cab17ffde806f8164"),
+	"pid" : 2,
+	"pname" : "project B",
+	"ptype" : "testing",
+	"duration_month" : 4
+}
+{
+	"_id" : ObjectId("657b368eab17ffde806f8167"),
+	"pid" : 5,
+	"pname" : "project E",
+	"ptype" : "testing",
+	"duration_month" : 5
+}
+{
+	"_id" : ObjectId("657b3e4eaa1ca21243fe4b9d"),
+	"pid" : 1,
+	"pname" : "project A",
+	"ptype" : "devlopment",
+	"duration_month" : 6
+}
+{
+	"_id" : ObjectId("657b3e69aa1ca21243fe4b9e"),
+	"pid" : 2,
+	"pname" : "project B",
+	"ptype" : "testing",
+	"duration_month" : 4
+}
+{
+	"_id" : ObjectId("657b3ebfaa1ca21243fe4ba1"),
+	"pid" : 2,
+	"pname" : "project B",
+	"ptype" : "testing",
+	"duration_month" : 4
+}
+{
+	"_id" : ObjectId("657b3edfaa1ca21243fe4ba4"),
+	"pid" : 5,
+	"pname" : "project E",
+	"ptype" : "testing",
+	"duration_month" : 5
+}
+> db.project.find({ptype:"testing"}).pretty()
+{
+	"_id" : ObjectId("657b341cab17ffde806f8164"),
+	"pid" : 2,
+	"pname" : "project B",
+	"ptype" : "testing",
+	"duration_month" : 4
+}
+{
+	"_id" : ObjectId("657b368eab17ffde806f8167"),
+	"pid" : 5,
+	"pname" : "project E",
+	"ptype" : "testing",
+	"duration_month" : 5
+}
+{
+	"_id" : ObjectId("657b3e69aa1ca21243fe4b9e"),
+	"pid" : 2,
+	"pname" : "project B",
+	"ptype" : "testing",
+	"duration_month" : 4
+}
+{
+	"_id" : ObjectId("657b3ebfaa1ca21243fe4ba1"),
+	"pid" : 2,
+	"pname" : "project B",
+	"ptype" : "testing",
+	"duration_month" : 4
+}
+{
+	"_id" : ObjectId("657b3edfaa1ca21243fe4ba4"),
+	"pid" : 5,
+	"pname" : "project E",
+	"ptype" : "testing",
+	"duration_month" : 5
+}
+> 
